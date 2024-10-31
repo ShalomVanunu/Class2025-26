@@ -1,0 +1,751 @@
+﻿/***********************/
+/* Risotto - Cal Loans */
+/***********************/
+
+@-moz-document url-prefix() {
+body { overflow-y:scroll; }
+}
+
+form {direction:rtl;text-align:right;font-size:14px;font-family:'Ploni',Arial;}
+table td {direction:rtl;text-align:right;font-size:14px;font-family:'Ploni',Arial;vertical-align:top;}
+
+div.error { min-height:19px;display:none;clear:both;color:#FF0000;font-size:12px;text-align:right;padding:0}
+div.date_time_absolute div.error {width:250px;}
+
+input.text_box_num { font-family:Verdana; }
+
+div.dotted_sep {background:url('images/loans/dots_line.gif') center 5px repeat-x; height:10px}
+
+div.toolbar_control {padding:19px 0px 5px 0px;clear:both;text-align:left;background:url('images/loans/dots_line.gif') center 0px repeat-x; }
+div.toolbar_control div.button_control {height:30px;padding:0px 0px 0px 0px;float:left;clear:both;}
+div.toolbar_control div.support_request { height:18px;text-align:left;padding:15px 0px 0px 10px;color:#1b5ece;font-size:14px; }
+div.toolbar_control div.support_request a.support_link_button { color:#1b5ece;font-size:14px;direction:rtl; }
+
+div.loan_form_wizard div.toolbar_control {margin-top:7px;padding:30px 0 0 0;}
+div.loan_form_wizard div.rep_contact_container {overflow:hidden;}
+div.loan_form_wizard div.rep_contact_container div.rep_contact {padding-top:5px;float:left;}
+div.loan_form_wizard div.rep_contact_container div.rep_contact a:link {color:#005288;}
+div.loan_form_wizard div.rep_contact_container div.rep_contact a:visited {color:#005288;}
+div.loan_form_wizard div.rep_contact_container div.rep_contact a:hover {color:#005288;}
+div.loan_form_wizard div.rep_contact_container div.rep_contact a:active {color:#005288;}
+
+div.loan_form_wizard a:link {color:#005288;}
+div.loan_form_wizard a:visited {color:#005288;}
+div.loan_form_wizard a:hover {color:#005288;}
+div.loan_form_wizard a:active {color:#005288;}
+
+
+div.loans_popup_layer {background:#ffffff;padding:0;overflow:hidden;}
+
+div.loans_popup_layer div.toolbar {background:#ffffff;height:40px;position:relative;
+	-webkit-border-radius: 10px 10px 0px 0px; -moz-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px; behavior: url(../../App_Themes/Default/PIE.htc);}
+
+div.loans_popup_layer div.content {padding:0px 20px 20px 20px;overflow:hidden;}
+
+div.loans_popup_layer div.content div.header {direction:rtl;font-family:'Ploni',Arial;font-weight:bold;font-size:16px;padding:4px 0px 20px 0px}
+
+div.loans_popup_layer div.content div.body {background:#ffffff;padding:0;direction:rtl;padding:0px 5px 0px 0px\9;}
+
+
+div.fault_dialog {background:url('images/loans/fault_dialog_image.gif') right top no-repeat;}
+div.success_dialog {background:url('images/loans/vi_cut.png') right top no-repeat;}
+
+div.dialog_animation_wrapper {background:transparent url('images/loans/progress_bar.gif') center top no-repeat;text-align:center;
+							 padding:30px 0px 0px 0px;}
+div.dialog_animation_wrapper div.dialog_header_text {font-size:16px;font-weight:bold;font-family:'Ploni',Arial;direction:rtl;text-align:center;margin:auto;
+													 padding:5px 0px 0px 0px}
+div.dialog_animation_wrapper div.dialog_body_text {font-size:14px;font-weight:bold;font-family:'Ploni',Arial;text-align:center;margin:auto;
+												   padding:5px 0px 20px 0px}
+
+
+div.dialog_type_wrapper {float:right;}
+div.dialog_image_holder {padding-right:40px;}
+div.dialog_type_wrapper div.dialog_header_text {font-size:16px;font-weight:bold;font-family:'Ploni',Arial;direction:rtl;}
+div.dialog_type_wrapper div.dialog_body_text {font-size:14px;font-weight:normal;font-family:'Ploni',Arial;}
+
+
+div.loans_popup_layer div.dialog_type_wrapper span.dialog_body_text div.exit_reason_title {margin:0px 0px 20px 0px; width:450px; font-size:18px; color:#005288; font-weight:bold}
+div.loans_popup_layer div.dialog_type_wrapper span.dialog_body_text div.exit_reason_remark1 {margin:10px 0px 20px 0px; width:450px; font-size:14px;}
+
+div.loans_popup_layer div.ui-dialog-titlebar {height:30px;padding:0; position: relative; background:transparent;border:none;}
+div.loans_popup_layer a.ui-dialog-titlebar-close { position:absolute;left:7px;top:7px;border:none;width:76px;height:20px;display:block;
+												   background:transparent url('images/loans/x_button.png') 0px 0px no-repeat;cursor:pointer;
+												   color:#005288;font-family:'Ploni',Arial;font-size:13px;padding:4px 0px 0px 0px; }
+/*div.loans_popup_layer a.ui-dialog-titlebar-close span.ui-icon { display:inline;}*/
+div.loans_popup_layer a.ui-dialog-titlebar-close:hover {background:transparent url('images/loans/x_button_mover.png') 0px 0px no-repeat;}
+div.loans_popup_layer a.ui-dialog-titlebar-close span.ui-icon-closethick{text-align:right;}
+
+
+div.loans_popup_layer div.ui-dialog {padding:0;text-align:right;}
+div.loans_popup_layer div.ui-widget-content {border:none;}
+div.loans_popup_layer div.ui-dialog-content {padding:0;text-align:right;overflow-y:auto;overflow-x:hidden;height:auto!important}
+div.loans_popup_layer div.ui-dialog-buttonpane {min-height:50px;
+												-webkit-border-radius: 0px 0px 10px 10px;
+												-moz-border-radius: 0px 0px 10px 10px;
+												border-radius: 0px 0px 10px 10px;
+												behavior: url(../../App_Themes/Default/PIE.htc);
+												background: #015289 url('images/loans/popup_bottom_stripe.gif') center bottom repeat-x;
+												padding-left:13px;
+												}
+div.loans_popup_layer div.ui-dialog-buttonset {min-height:50px;background:transparent}
+div.loans_popup_layer div.ui-dialog-buttonpane button.ui-state-default {padding:0;height:36px;background:transparent;border:none;float:left;padding:10px 0px 10px 0px}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_button {width:98px;height:36px;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_close_button {background:url('images/loans/close_button.png') center center no-repeat;outline:none;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_close_button:hover {background:url('images/loans/close_button_over.png') center center no-repeat;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_update_button {background:url('images/loans/update_button.gif') center center no-repeat;outline:none;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_update_button:hover {background:url('images/loans/update_button_over.gif') center center no-repeat;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_send_button {background:url('images/loans/send_button.png') center center no-repeat;outline:none;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_send_button:hover {background:url('images/loans/send_button_over.png') center center no-repeat;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_cancel_button {background:url('images/cancel_but.png') center center no-repeat;outline:none;float:right;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_cancel_button:hover {background:url('images/cancel_but_over.png') center center no-repeat;}
+div.loans_popup_layer div.ui-dialog-buttonpane button.dialog_no_button {cursor:text;}
+
+
+
+div.load_animation {background:transparent url('images/loans/3d_sync_anim.gif') 10px 0px no-repeat;
+					display:block;height:40px;width:60px;position:absolute;top:8px;left:0px;}
+
+
+
+.box_rounded_corners
+{
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	behavior: url(../../App_Themes/Default/PIE.htc);
+}
+
+.box_drop_shadow
+{
+	-webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+	-moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);
+	box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.7);	
+	behavior: url(../../App_Themes/Default/PIE.htc);
+}
+
+.bottom_rounded_corners
+{
+	-webkit-border-radius: 0px 0px 10px 10px;
+	-moz-border-radius: 0px 0px 10px 10px;
+	border-radius: 0px 0px 10px 10px;
+	behavior: url(../../App_Themes/Default/PIE.htc);
+}
+.top_rounded_corners
+{
+	-webkit-border-radius: 10px 10px 0px 0px;
+	-moz-border-radius: 10px 10px 0px 0px;
+	border-radius: 10px 10px 0px 0px;
+	behavior: url(../../App_Themes/Default/PIE.htc);
+}
+
+div#dataContainer {direction:rtl;}
+input.cal_text_box {font-family:'Ploni',Arial;font-size:14px;}
+div.loan_form {width:636px;margin:0 auto;overflow:hidden}
+div.loan_form_popup {width:450px;margin:0 auto;overflow:hidden;*display:inline;zoom:1;text-align:right}
+div.wide_loan_form {width:645px;}
+
+div.loan_form div.loan_form_inner {padding:10px 40px;width:564px;min-height:600px;}
+div.loan_form div.loan_form_inner div.button_container {overflow:hidden;}
+div.loan_form div.loan_form_inner div.button_container input { float:left;background:url('images/loans/button_continue.gif') no-repeat; width:102px;height:36px;border:0px;cursor:pointer;}
+div.loan_form div.loan_form_inner div.button_container input:hover { background:url('images/loans/button_continue_over.gif') no-repeat;}
+
+div.loan_form div.loan_form_inner div.button_container input.wizard_button_step2_section1 {background:url('images/loans/button_check_eligibility.gif') 50% 50% no-repeat; width:178px;}
+div.loan_form div.loan_form_inner div.button_container input.wizard_button_step2_section1:hover {background:url('images/loans/button_check_eligibility_over.gif') 50% 50% no-repeat;}
+
+
+div.loan_form_row {overflow:hidden;min-height:42px;vertical-align:middle;}
+div.loan_form_row div.data_item {float:right;padding:0;display:block;display:table-cell;vertical-align:middle;}
+div.loan_form_row div.label {font-family:'Ploni',Arial;font-size:14px;text-align:right;padding:3px 0px 0px 0px;display:table-cell;vertical-align:middle;}
+div.loan_form_row span.label {font-family:'Ploni',Arial;font-size:14px;text-align:right;padding:0px 0px 4px 10px;display:inline-block;vertical-align:middle}
+div.loan_form_row div.control {padding:0;margin:0px;min-height:20px;margin:auto;/*display:table-cell;*/vertical-align:middle;}
+div.loan_form_row div.control span {font-family:'Ploni',Arial;font-size:14px;padding-top:3px;}
+div.loan_form_row div.label_control {padding-top:3px;}
+div.loan_form_row div.control input.cal_text_box {border:1px solid #cdcbc8;padding:0;margin:0px;height:20px;direction:rtl;text-align:right;}
+div.loan_form_row div.control textarea {border:1px solid #cdcbc8;padding:0;margin:0px;height:40px;direction:rtl;text-align:right;font-family:'Ploni',Arial;font-size:14px;resize:none;}
+
+
+/* div.loan_form_row div.control div.multi_text_boxes { position:relative;display:block; } */
+/*div.loan_form_row div.control div.multi_text_boxes span.label { position:absolute; }*/
+
+/*div.marketing_lead {padding:0;background:url('images/loans/bottom_pix.gif') center top repeat-x;}*/
+
+div.marketing_lead div.frame_top { position:relative;width:100%;height:1px;}
+div.marketing_lead div.frame_top div.top { background:url('images/loans/top_pix.gif') center top repeat-x; position:absolute;width:100%;height:65px;z-index:0}
+div.marketing_lead div.frame_top div.top div.left { position:absolute;top:0px;left:0px;background:url('images/loans/corner_top_left.gif') left top; width:22px;height:65px;}
+div.marketing_lead div.frame_top div.top div.right { position:absolute;top:0px;right:0px;background:url('images/loans/corner_top_right.gif') right top; width:22px;height:65px;}
+div.marketing_lead div.frame_top div.top div.header {font-size:22px; font-weight:bold; color:#005288; padding:20px 40px 0px 0px; }
+
+div.marketing_lead div.frame_bottom { position:relative;width:100%;height:22px;}
+div.marketing_lead div.frame_bottom div.bottom { background:url('images/loans/bottom_pix.gif') center bottom repeat-x; position:absolute;width:100%;height:22px;z-index:0}
+div.marketing_lead div.frame_bottom div.bottom div.left { position:absolute;top:0px;left:0px;background:url('images/loans/corner_bottom_left.gif') left top; width:22px;height:22px;}
+div.marketing_lead div.frame_bottom div.bottom div.right { position:absolute;top:0px;right:0px;background:url('images/loans/corner_bottom_right.gif') right top; width:22px;height:22px;}
+
+div.marketing_lead div.banner { width:100%; display:block; background:url('images/loans/banner_loan.jpg') center top no-repeat;position:relative;height:311px;}
+div.marketing_lead div.banner div.promotion_text { position:absolute;color:White; top:245px;right:25px;width:540px;direction:rtl;font-size:16px;}
+div.marketing_lead div.banner div.promotion_text div.promotion_text_salary { font-size:12px;}
+
+div.marketing_lead div.content { width:100%; padding:0; background:url('images/loans/right_pix.gif') right center repeat-y; }
+
+div.marketing_lead div.content div.lead_form { padding:70px 40px 0px 40px; background:url('images/loans/left_pix.gif') left center repeat-y;}
+
+.cursor_pointer { cursor:pointer; }
+
+*.unselectable 
+{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+}
+
+div.lead_form div.column {min-height:140px;}
+
+div.lead_form div.right_column {float:right; width:335px;padding:0;}
+div.lead_form div.right_column div.loan_form_row div.control {width:137px;}
+div.lead_form div.right_column div.loan_form_row div.control input.cal_text_box {width:135px;}
+div.lead_form div.right_column div.loan_form_row div.label {width:115px;}
+
+div.lead_form div.left_column {float:left; width:216px;}
+div.lead_form div.left_column div.loan_form_row div.control {width:137px;}
+div.lead_form div.left_column div.loan_form_row div.control input.cal_text_box {width:135px;}
+div.lead_form div.left_column div.loan_form_row div.label {width:75px;}
+
+div.lead_form div.check_box_control {height:25px;width:100%;display:block;padding:0px 0px 10px 0px}
+div.lead_form div.check_box_control div.box {width:20px;height:20px;float:right;padding:0px 0px 0px 5px}
+div.lead_form div.check_box_control div.text {height:20px;float:right;padding:1px 0px 0px 0px;}
+
+div.lead_form div.phone_number_wrapper {height:20px;width:137px;}
+div.lead_form div.phone_number_wrapper div.text { height:20px;float:right;width:75px; }
+div.lead_form div.right_column div.phone_number_wrapper div.text input.cal_text_box { width:75px; }
+div.lead_form div.right_column div.phone_number_wrapper div.combo input.combo_text_box { height:20px;float:left;width:50px; }
+
+
+
+
+div.tooltip_icon { background:transparent url('images/loans/icon_info_cut.png') center top no-repeat; 
+				   padding:0px;height:22px;width:30px;line-height:20px;vertical-align:middle;}
+
+div.tooltip { border:none;background:transparent;overflow-x:visible;overflow-y:visible;
+				margin:auto;position:absolute;z-index:10000000;text-align:right;direction:rtl;
+				top:-1000; left:-1000;overflow:auto;max-width:200px;padding:5px 5px 0px 5px;}
+				
+div.tooltip div.text { -webkit-border-radius: 5px 5px 5px 5px;-moz-border-radius: 5px 5px 5px 5px;border-radius: 5px 5px 5px 5px;
+				-moz-box-shadow: 0 0 5px #000000; -webkit-box-shadow: 0 0 5px #000000; box-shadow: 0 0 5px #000000;direction:rtl;
+				display:block; border:3px solid #ACB8BF;padding:6px 6px 9px 12px;direction:rtl;background:#ffffff;
+				/*behavior: url(../../App_Themes/Default/PIE.htc);*/}
+
+div.tooltip div.tip { background:transparent url('images/loans/tip_bottom_right.gif') right top no-repeat; 
+					  height:10px;width:20px;padding:0;direction:rtl;text-align:right;}
+
+div.loan_form_wizard div.phone_number_wrapper {overflow:hidden}
+div.loan_form_wizard div.loan_form_row div.phone_number_wrapper div.text { float:right }
+div.loan_form_wizard div.loan_form_row div.phone_number_wrapper div.text input.cal_text_box { width:120px; }
+div.loan_form_wizard div.loan_form_row div.phone_number_wrapper div.combo input.combo_text_box { float:left;width:55px;*margin:1px 0px 0px 0px;}
+
+div.loan_form_wizard div.loan_info_header {padding:10px 0 0 0;}
+/*********************/
+div.support_dialog_form { width:350px; min-height:150px; }
+div.support_dialog_form div.loan_form_row div.label {width:130px;}
+div.support_dialog_form div.loan_form_row div.control {width:184px;}
+div.support_dialog_form div.loan_form_row div.control input.cal_text_box {width:183px;}
+div.support_dialog_form div.phone_number_wrapper {height:20px;width:185px;padding:0px;}
+div.support_dialog_form div.phone_number_wrapper div.text { height:20px;float:right;width:120px; }
+div.support_dialog_form div.phone_number_wrapper div.text input.cal_text_box { width:120px; }
+div.support_dialog_form div.phone_number_wrapper div.combo input.combo_text_box { height:20px;float:left;width:55px; }
+
+div.loan_form_wizard div.loan_form_row input.combo_text_box { width:179px; }
+
+div.loan_form_wizard div.loan_form_row div.control {width:184px;}
+div.loan_form_wizard div.loan_form_row div.wide_control {width:235px;}
+div.loan_form_wizard div.loan_form_row div.long_label {width:auto;}
+div.loan_form_wizard div.loan_form_row div.rdo_card_type {width:240px;}
+div.loan_form_wizard div.loan_form_row div.rdo_address_type {width:184px;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_address {display:block;float:right;min-width:50px;}
+div.loan_form_wizard div.loan_form_row div.control input.cal_text_box {width:182px;background-color:White;}
+div.loan_form_wizard div.loan_form_row div.label {width:200px;}
+div.loan_form_wizard div.loan_form_row div.label_mini {width:120px;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo {overflow:hidden;display:block;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_two span {display:block;float:right;min-width:90px;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_two label {padding:0px !important;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_car_owner {min-width:5px;overflow:hidden;display:block;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_one_line {overflow:hidden;display:block;}
+/*div.loan_form_wizard div.loan_form_row span.loan_rdo input {float:right;}*/
+div.loan_form_wizard div.loan_form_row span.loan_rdo label {width:48px;vertical-align:top;font-size:14px;padding:0px 0px 0px 20px;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_one_line label {vertical-align:top;font-size:14px;}
+div.loan_form_wizard div.loan_form_row span.loan_rdo_car_owner label {vertical-align:top;font-size:14px;padding:0px 3px 0px 2px;}
+div.loan_form_wizard div.loan_form_row span.card_type_last label {width:35px;font-size:14px;}
+div.loan_form_wizard div.loan_form_row span.address_type_last label {width:105px;font-size:14px;}
+div.loan_form_wizard div.loan_form_row span.address_type_first label {width:38px;font-size:14px;padding:0px 0px 0px 20px;*padding:0px 20px 0px 0px;}
+
+div.loan_form_wizard div.loan_form_row table.loan_rdo tr {height:30px;}
+div.loan_form_wizard div.loan_form_row table.loan_rdo td {width:150px !important;}
+div.loan_form_wizard div.loan_form_row table.loan_rdo_auto td {width:auto;}
+div.loan_form_wizard div.loan_form_row div.control_rdo_two_rows {height:65px;}
+div.loan_form_wizard div.loan_form_row table.loan_rdo label {font-size:14px;vertical-align:top;}
+div.loan_form_wizard div.loan_form_row table.loan_rdo_auto {padding:0px 0px 20px 0px; direction:ltr}
+div.loan_form_wizard div.loan_form_row table.loan_rdo_auto label {font-size:14px;vertical-align:top;}
+
+div.loan_form_wizard div.loan_form_row div.float_right {text-align:right}
+div.loan_form_wizard div.loan_form_row div.float_left {text-align:left; float:left}
+
+div.loan_form_wizard div.loan_form_row div.multi_text_boxes {overflow:hidden}
+div.loan_form_wizard div.loan_form_row div.multi_text_boxes div.float_right input.cal_text_box {float:right; }
+div.loan_form_wizard div.loan_form_row div.multi_text_boxes div.dual_tooltip {float:right;}
+
+div.loan_form_wizard div.loan_form_row div.short_label {text-align:left;width:70px;}
+
+div.loan_form_wizard div.date_time_wrapper {overflow:hidden}
+div.loan_form_wizard div.date_time_wrapper div.text { height:22px;float:right;}
+div.loan_form_wizard div.date_time_wrapper div.text_float_left { height:22px;float:left;}
+div.loan_form_wizard div.date_time_wrapper div.text input.cal_text_box { width:37px;}
+div.loan_form_wizard div.date_time_wrapper div.label { height:20px;float:right;text-align:right;}
+div.loan_form_wizard div.date_time_wrapper div.label_float_left { height:20px;float:left;text-align:right;}
+div.loan_form_wizard div.date_time_absolute {/*position:absolute;*/width:215px;top:0px;/*right:-30px;*/margin-right:-30px;}
+
+div.loan_form_wizard div.date_time_wrapper div.day_label { width:20px; }
+div.loan_form_wizard div.date_time_wrapper div.month_label { width:34px; }
+div.loan_form_wizard div.date_time_wrapper div.year_label { width:30px; }
+
+div.loan_form_wizard div.date_time_wrapper div.day_text { width:40px;}
+div.loan_form_wizard div.date_time_wrapper div.month_text { width:45px; }
+div.loan_form_wizard div.date_time_wrapper div.year_text { width:45px; }
+
+.relative_pos {position:relative;height:50px;}
+
+
+/*
+<div.form_name> div.loan_form_row div.label {width:200px;}
+<div.form_name> div.loan_form_row div.control {width:181px;}
+<div.form_name> div.loan_form_row div.tooltip {width:30px;}
+*/
+
+/*div.loan_form div.loan_form_row input.loan_txt {border:1px solid #cdcbc8;width:181px;padding:1px;margin:0px;height:20px;}*/
+
+/*
+div.loan_form_row input.cal_text_box {border:1px solid #cdcbc8;padding:0;margin:0px;height:20px;direction:rtl;}
+div.loan_form_row input.num {border:1px solid #cdcbc8;padding:0;margin:0px;height:20px;direction:ltr;}
+div.loan_form_row input.cal_combo_box {border:1px solid #cdcbc8;padding:0;margin:0px;height:20px;}
+
+div.loan_form_row span.loan_rdo {overflow:hidden;display:block;}
+div.loan_form_row span.loan_rdo input {float:right;}
+div.loan_form_row span.loan_rdo label {width:70px;float:right;font-size:14px;height:30px;}
+*/
+
+
+div.row_rdo {height:78px !important;}
+
+div.loan_header_container {margin:0 auto;direction:rtl;}
+div.loan_header_container div.loan_header {font-size:22px; font-weight:bold;color:#005288;height:35px;}
+div.loan_header_container div.loan_sub_header {font-size:14px;height:45px;}
+div.loan_body_header {font-size:18px;font-weight:bold;color:#005288;padding:20px 0 20px 0;}
+div.loan_body_small_header {font-size:16px;font-weight:bold;color:#005288;padding:20px 0 5px 0;}
+
+div.shipment_form div.loan_body_header {font-size:18px;font-weight:bold;color:#005288;padding:18px 0 18px 0;}
+
+div.loan_popup_update_header {font-size:18px;font-weight:bold;color:#005288;}
+
+a:focus, *:focus , a.link , a.ui-state-default , input[type=image] , input[type=button] , button
+{
+    noFocusLine: expression(this.onFocus=this.blur());
+    outline: medium none;
+}
+
+button::-moz-focus-inner , input::-moz-focus-inner , a::-moz-focus-inner
+{
+	border:0;
+}
+
+
+/* Wizard */
+div.wizard_container {overflow:hidden;}
+div.wizard_container div.wizard_item {font-size:13px;font-weight:bold;color:White;
+									  background-position:left;
+									  background-repeat:no-repeat;height:33px;float:right;position:relative;}
+									  
+div.wizard_container div.wizard_selected_item {background-color:#005289;background-image:url('images/loans/bar_blue_grey_cut.gif');}
+div.wizard_container div.wizard_not_selected_item {background-color:#E6EAEE;background-image:url('images/loans/bar_grey_grety_cut.gif');color:#005288;}
+div.wizard_container div.wizard_before_selected_item {background-color:#E6EAEE;background-image:url('images/loans/bar_grey_blue_cut.gif');color:#005288;}
+div.wizard_container div.wizard_last_selected_item {background-color:#005289;background-image:url('images/loans/bar_blue_cut.gif');}
+div.wizard_container div.wizard_last_not_selected_item {background-color:#E6EAEE;background-image:url('images/loans/bar_grey_cut.gif');color:#005288;}
+	
+div.wizard_item div.white_progress_bar,
+div.wizard_item div.short_white_progress_bar {height:8px;width:84%;*width:80%;
+										 background:url('images/loans/bar_white_pixel.gif') repeat-x;float:right;}
+   
+div.wizard_first_item span {width:130px;*width:90px;}
+div.wizard_first_item div.white_progress_bar,
+div.wizard_first_item div.green_progress_bar {width:92%;*width:93%;}                                      
+ 
+div.wizard_item div.green_progress_bar,
+div.wizard_item div.short_green_progress_bar {height:8px;width:0;
+										 background:url('images/loans/bar_green_pixel.gif') repeat-x;float:right;}
+  
+div.wizard_item div.short_white_progress_bar {width:86%;*width:86%;}
+
+
+div.wizard_last_not_selected_item div.white_progress_bar,
+div.wizard_last_not_selected_item div.green_progress_bar,
+div.wizard_last_selected_item div.white_progress_bar,
+div.wizard_last_selected_item div.green_progress_bar {width:80%;*width:84%;}
+
+div.wizard_item div.progress_bar_container {position:relative;width:97%;*width:130px;height:8px;}
+div.wizard_first_item div.progress_bar_container {width:90%;*width:125px;}
+div.wizard_item div.short_progress_bar_container {*width:148px;}
+
+div.progress_bar_container div.strip {position:absolute;width:100%;overflow:hidden;left:11px;}
+div.progress_bar_container div.white_strip {}
+div.progress_bar_container div.green_strip {display:none;}
+
+div.wizard_first_item div.strip {left:-3px;}
+									   
+div.wizard_item img {float:right;padding:0px;margin:0px;}                              
+div.wizard_item span {padding:4px 10px 3px 49px;display:block;}
+
+div.right_top_border {background-image:url('images/loans/corner_righ_up.gif');width:22px;height:22px;float:right;}
+div.center_top_border {width:601px;height:22px;float:right;background-image:url('images/loans/wizard_top_fix.gif');}
+div.left_top_border {background-image:url('images/loans/corner_left_up.gif');width:22px;height:22px;float:right;}
+
+div.right_border {background-image:url('images/loans/right_pix.gif');background-repeat:repeat-y;background-position:right;}
+div.border_data { }
+div.left_border {background-image:url('images/loans/left_pix.gif');background-repeat:repeat-y;background-position:left;}
+
+div.right_bottom_border {background-image:url('images/loans/corner_bottom_right.gif');width:22px;height:22px;float:right;clear:both;}
+div.center_bottom_border {height:22px;float:right;background-image:url('images/loans/bottom_pix.gif');width:601px;}
+div.left_bottom_border {background-image:url('images/loans/corner_bottom_left.gif');width:22px;height:22px;float:right;}
+
+div.mouse_help_container {font-weight:bold;padding:12px 0 0 0;}
+div.mouse_help_container img.mouse_help {vertical-align:middle;}
+
+UL.cal_auto_complete {padding:0;margin:0;text-align:right;list-style-type:none;background:#FFFFFF;
+					  font-family:'Ploni',Arial;font-size:14px;width:120px;height:200px;overflow-y:scroll;overflow-x:hidden;cursor:default;
+					  direction:rtl;border:1px solid #cdcbc8;
+					  -webkit-border-radius: 0px 0px 10px 10px; 
+					  -moz-border-radius: 0px 0px 10px 10px;
+					  border-radius: 0px 0px 10px 10px;}
+						
+						
+UL.cal_auto_complete li {padding: 2px 5px 2px 5px; border-bottom:solid 1px #f1f1f1;display:block;list-style:none;}
+UL.cal_auto_complete li:hover {background:#EAF5C2;}
+
+UL.cal_auto_complete li a { width:100%;display:block; padding:0;}
+UL.cal_auto_complete li a:hover {font-weight:normal}
+
+.hide {display:none;}
+
+
+input.nis_water_mark {background:url('images/loans/nis_symbol.png') 5px center no-repeat;}
+div.dir_ltr {direction:ltr;}
+
+div.update_section_button {position:relative; *position:absolute}
+div.update_section_button div.inner {position:absolute;left:0px; *left:-560px;top:-50px;}
+div.update_section_button div.inner input.update_details { background:transparent url('images/loans/update_button.gif') center center no-repeat;outline:none; height:38px; width:100px; border:none;cursor:pointer}
+div.update_section_button div.inner input.update_details:hover { background:transparent url('images/loans/update_button_hover.gif') center center no-repeat;cursor:pointer}
+
+/* WizardStep3Section1 - מסך בדיקת זכאות - Start */
+div.green_checked_container
+{
+	background-color:#e8f4d9;
+	-webkit-border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px; 
+	behavior: url(../../App_Themes/Default/PIE.htc);
+	padding:5px 0 13px 20px; 
+	overflow:hidden;
+}
+	
+div.green_checked_container div.inner_container {padding:0px 20px 0px 0px;}
+div.green_checked_container div.inner_container div.upper_first_line {color:#005288;font-size:14px;font-weight:bold;padding:5px 0px 0px 0px;width:400px;}
+div.green_checked_container div.inner_container div.upper_text_bold {color:#005288;font-size:18px;font-weight:bold;width:400px;}
+div.green_checked_container div.inner_container img {margin:15px 0 0 10px;}
+div.green_checked_container img {float:right;}
+div.green_checked_container span.amount_label {display:block;}
+div.green_checked_container span.amount {font-size:20px;}
+div.details_label {font-size:14px;margin:0px 10px 15px 0px;} 
+
+div.loan_form div.loan_form_inner div.total_monthly_payments {overflow:hidden}
+div.loan_form div.loan_form_inner div.total_monthly_payments div.button_container {float:left;}
+div.loan_form div.loan_form_inner div.total_monthly_payments div.button_container input {
+		background:url('images/hashev_but.png') center center no-repeat;
+		width:94px;height:36px;border:0px;cursor:pointer;}
+		
+div.loan_form div.loan_form_inner div.total_monthly_payments div.button_container input:hover {
+		background:url('images/hashev_but_over.png') center center no-repeat;
+}		
+
+div.loan_form div.loan_form_inner div.total_bar_container {width:450px;height:36px; }
+div.loan_form div.loan_form_inner div.total_bar_container div.top_right_corner_bar {
+		background:transparent url('images/top_total_right_bar.gif') right top no-repeat; }
+div.loan_form div.loan_form_inner div.total_bar_container div.top_left_corner_bar {
+		background:transparent url('images/top_total_left_bar.gif') left top no-repeat; }
+div.loan_form div.loan_form_inner div.total_bar_container div.low_right_corner_bar {
+		background:transparent url('images/low_total_right_bar.gif') right bottom no-repeat; }
+div.loan_form div.loan_form_inner div.total_bar_container div.low_left_corner_bar {
+		background:transparent url('images/low_total_left_bar.gif') left bottom no-repeat; }
+div.loan_form div.loan_form_inner div.total_bar_container div.total_left_pixel_bar {
+		background:transparent url('images/low_total_left_pixel.gif') left center repeat-y;
+		float:left;height:12px;margin-top:12px;width:13px;}
+div.loan_form div.loan_form_inner div.total_bar_container div.total_right_pixel_bar {
+		background:transparent url('images/low_total_right_pixel.gif') right center repeat-y;
+		float:right;height:12px;margin-top:12px;width:13px;
+		 }
+div.loan_form div.loan_form_inner div.total_bar_container div.total_text_value_bar  {
+		background:transparent url('images/1x36_total_bar.gif') 0 0 repeat-x; 
+		margin:0px 13px 0px 13px; height:36px;
+		float: right; width: 424px; margin: 0; }
+div.loan_form div.loan_form_inner div.total_bar_container div.total_payments_container { overflow:hidden }
+div.loan_form div.loan_form_inner div.total_bar_container div.inner_overflow_bar { overflow:hidden }
+
+
+div.loan_form div.loan_form_inner div.total_monthly_payments div.total_payments_text { margin: 7px 0px 0px 0px; float:right; }
+div.loan_form div.loan_form_inner div.total_monthly_payments div.total_payments_value { margin: 8px 0px 0px 0px; float:left; direction:ltr }
+
+div.loan_form div.loan_form_inner div.title_blue_22 {color:#005288;font-size:22px;font-weight:bold;}
+div.loan_form div.loan_form_inner div.title_blue_18 {color:#005288;font-size:18px;font-weight:bold;}
+div.loan_form div.loan_form_inner div.title_black_16 {color:#000000;font-size:16px;font-weight:bold;}
+div.loan_form div.loan_form_inner div.calculation_results {clear:both; }
+div.loan_form div.loan_form_inner div.give_padding_top_bottom {padding:20px 0px 20px 0px;}
+
+div.loan_form div.loan_form_inner div.bottom_text_12 {color:#000000;font-size:12px;font-weight:normal;}
+div.loan_form div.loan_form_inner ul.bottom_text_12 {color:#000000;font-size:12px;font-weight:normal;}
+div.loan_form div.loan_form_inner ul.bottom_text_14 {color:#000000;font-size:14px;font-weight:normal;}
+
+div.loan_form div.loan_form_inner ul.bottom_interest {list-style-type: none; background:url("images/asterisk_black.gif") no-repeat scroll 559px 3px transparent; padding: 0px 7px 0px 0px;margin:0}
+div.loan_form div.loan_form_inner ul.bottom_interest li: {padding: 0px 0px 10px 0px; }
+
+div.loan_form div.loan_form_inner ul.bottom_remarks {list-style: disc outside url("images/green_but.gif");padding: 0px 12px 0px 0px;margin:0}
+div.loan_form div.loan_form_inner ul.bottom_remarks li {padding: 0px 0px 10px 0px;}
+
+div.loan_form div.loan_form_inner img.green_button_space {padding:0px 0px 2px 5px;}
+
+div.loan_form div.loan_form_inner div.cancel_link_button {float:right;z-index:1001;z-index:1002\9;position:relative;}
+div.loan_form div.loan_form_inner input.cancel_container_hidden {visibility:hidden}
+div.loan_form div.loan_form_inner div.cancel_link_button input {background:url('images/cancel_but.png') no-repeat; width:86px;height:36px;border:0px;cursor:pointer;}
+div.loan_form div.loan_form_inner div.cancel_link_button input:hover {background:url('images/cancel_but_over.png') no-repeat;}
+div.loan_form div.loan_form_inner div.button_approve_loan input.button_submit {float:left;background:url('images/loans/ishur_hazmana.png') no-repeat; width:155px;height:36px;border:0px;cursor:pointer;}
+div.loan_form div.loan_form_inner div.button_approve_loan input.button_submit:hover {background:url('images/loans/ishur_hazmana_over.png') no-repeat;}
+
+div.loan_form div.lead_form input.button_submit {float:left;background:url('images/loans/continue_request_button.gif') no-repeat; width:185px;height:36px;border:0px;cursor:pointer;}
+div.loan_form div.lead_form input.button_submit:hover {background:url('images/loans/continue_request_button_over.gif') no-repeat;}
+
+/* WizardStep3Section1 - מסך בדיקת זכאות - End */
+
+div.loan_form div.loan_msg {padding:10px 0;margin:0 20px;background:transparent url('images/icon_ishur.png') right top no-repeat;}
+div.loan_msg div.loan_inner_msg {padding:0 50px;}
+div.loan_inner_msg div.summary_header {font-size:16px;font-weight:bold;color:#015289;}
+div.loan_inner_msg div.summary_big {font-size:16px;}
+div.loan_inner_msg div.summary_space {margin:15px 0;}
+div.loan_inner_msg div.summary_shipping_error {font-size:16px;background:transparent url('images/icon_error_on-white.gif') right top no-repeat;position:relative;right:-40px;padding-right:40px;}
+div.loan_payments_message { color: #005288; font-family:'Ploni',Arial; font-size: 12px; font-weight:bold; text-align: center; }
+
+div.message_info {font-family:'Ploni',Arial;font-size:12px;color:#000000; -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter:alpha(opacity=70); opacity: .7}
+input.border_info {background-color:#F1F1F1 !important}
+
+/* קונטרול הסליידרים - Begin */
+
+div.documents_container_slider
+{
+    background-color:#e6eaec;
+    -webkit-border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px; 
+	behavior: url(../../App_Themes/Default/PIE.htc);
+	padding:15px 10px 0px 10px; 
+	margin:0px 0px 0px 0px;
+	overflow:hidden;
+	position:relative;
+}
+    
+div.documents_container_slider div.header {font-weight:bold;font-size:14px;}
+div.documents_container_slider div.slider_container div.text_amount {float:left;}
+div.documents_container_slider div.slider_container div.text_amount input.text_amount_input 
+{
+    border: 1px solid #CDCBC8;
+    direction: rtl;
+    height: 18px;
+    margin: -3px 0px 0px 0px;
+    padding: 2px 5px 0px 0px;
+    text-align: right;
+    font-weight:bold;
+    font-size:14px;
+    font-family:'Ploni',Arial;
+    color:#000000;
+    width:75px;
+}
+div.documents_container_slider div.slider_container div.label_loan {float:right;font-weight:bold;font-size:13px;font-family:'Ploni',Arial;color:#000000;}
+div.documents_container_slider div.slider_container div.label_2_rows {position:absolute; bottom:10px;}
+    
+div.documents_container_slider div.slider_container {padding:3px 0px 0px 0px;}
+div.documents_container_slider div.slider_container div.slider {width:301px; margin:0px 150px 0px 0px}
+div.documents_container_slider div.slider_container div.slider_labels {width:301px; margin:0px 150px 0px 0px;font-size:12px;}
+
+
+
+/* קונטרול הסליידרים - End */
+
+
+
+/* Imported css from JQueryUiTheme to Override - Begin */
+
+div.loan_form_wizard .ui-widget-content {
+    background: url("../../App_Themes/Default/Images/bar_prosess.png") no-repeat 0px 6px;
+    border: none !important;
+}
+   
+div.loan_form_wizard .ui-slider-horizontal {
+    height: 20px !important;
+}
+div.loan_form_wizard .ui-state-default, div.loan_form_wizard .ui-widget-content .ui-state-default {
+    background: url("../../App_Themes/Default/Images/bar_but.png") no-repeat 0 0;
+    border: none !important;
+    font-weight: normal !important;
+    height:26px !important;
+}
+
+
+/* Imported css from JQueryUiTheme to Override - Begin */
+
+
+
+/* shipping */
+div.success_container
+{
+    background-color:#e7f5d8;
+    -webkit-border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px; 
+	behavior: url(../../App_Themes/Default/PIE.htc);
+	padding:13px 0px 13px 0px; 
+	overflow:hidden;
+}
+    
+div.success_container div.inner_success_container {float:right;background:url('../../App_Themes/Default/Images/Loans/dots_line_vertical.gif') repeat-y left; padding:10px 20px 25px 20px;height:38px;}
+div.success_container div.inner_success_container:first-child {*width:138px;}
+div.success_container div.inner_success_container:first-child span {color:#005288;font-size:14px;font-weight:bold;padding:5px 10px 0 0;float:right;width:90px;}
+div.success_container div.last_inner_success_container {background:none;padding-left:0px;}
+div.success_container img {float:right;}
+div.success_container span.amount_label {display:block;}
+div.success_container span.amount {font-size:20px;}
+div.details_label {font-size:12px;margin:0 0 20px 0;} 
+   
+
+div.documents_container
+{
+    background-color:#f0f1f3;
+    -webkit-border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px;
+	border-radius: 10px 10px 10px 10px; 
+	behavior: url(../../App_Themes/Default/PIE.htc);
+	padding:10px 20px 13px 20px; 
+	overflow:hidden;	    
+}
+    
+div.documents_container div.header {font-weight:bold;font-size:14px;}
+div.documents_container ul {padding:0 15px 0 0;font-size:14px;width:320px;margin-right:0;}
+div.documents_container li {list-style-image:url('../../App_Themes/Default/Images/Loans/green_point.png');min-height:25px;
+                            font-size:14px;}
+
+div.documents_container ul span.doc_label {*float:right;}
+div.documents_container ul div.tooltip_icon {float:left;}
+
+
+
+/* date picker */
+#ui-datepicker-div {display:none;}
+.ui-datepicker{ background:white;text-align:right; width:250px;border:1px solid #cdcbc8; font-family:'Ploni',Arial;font-size:13px;padding:5px;
+                           -webkit-border-radius: 0px 0px 10px 10px;-moz-border-radius: 0px 0px 10px 10px;border-radius: 0px 0px 10px 10px;
+                           behavior: url(../../App_Themes/Default/PIE.htc);margin:2px 0px 0px 0px}
+.ui-datepicker-header { text-align:center; width:100%;height:25px;padding:5px 0px 0px 0px}
+.ui-datepicker-header a.ui-datepicker-next { display:block;float:left; }
+.ui-datepicker-header a.ui-datepicker-prev { display:block;float:right; }
+.ui-datepicker-header div.ui-datepicker-title { height:25px;font-size:14px; font-weight:bold;}
+.ui-datepicker-header div.ui-datepicker-title span.ui-datepicker-month { font-family:'Ploni',Arial; }
+.ui-datepicker-header div.ui-datepicker-title span.ui-datepicker-year { font-family:verdana; }
+
+.ui-datepicker-calendar {width:100%;}
+
+.ui-datepicker-calendar {width:100%;}
+.ui-datepicker-calendar table {padding:0}
+.ui-datepicker-calendar th {height:20px;vertical-align:middle;}
+.ui-datepicker-calendar th span {font-family:Verdana;font-size:13px;text-decoration:none; font-weight:normal;direction:ltr;text-align:right;}
+.ui-datepicker-calendar td {vertical-align:middle; font-family:Verdana;font-size:13px;text-decoration:none; font-weight:normal;text-align:center;}
+.ui-datepicker-calendar td a.ui-state-default {text-decoration:none;display:block;padding:2px;line-height:18px;height:18px;width:18px;font-family:verdana}
+.ui-datepicker-calendar td a.ui-state-default:hover {text-decoration:none;-webkit-border-radius: 2px 2px 0px 0px;-moz-border-radius: 2px 2px 0px 0px;border-radius: 2px 2px 0px 0px;
+                                    background:#8CC63F;}
+.ui-datepicker-calendar td span.ui-state-default { color:Gray; font-family:Verdana}
+
+
+div.shipment_form {}
+
+div.shipment_form div.loan_form_row div.control {width:200px;}
+div.shipment_form div.loan_form_row div.control input.combo_text_box {width:200px;}
+div.shipment_form div.loan_form_row div.control input.cal_text_box {width:200px;}
+
+div.shipment_form div.loan_form_row div.phone_number_wrapper {width:205px;}
+div.shipment_form div.loan_form_row div.phone_number_wrapper div.text input.cal_text_box {width:140px;}
+div.shipment_form div.loan_form_row div.phone_number_wrapper div.text {width:140px;}
+
+div.shipment_form div.loan_form_row div.tooltip_icon {width:40px;}
+
+div.shipment_form div.shipment_confirm {width:430px;margin:10px 0px 0px 0px}
+div.shipment_form div.shipment_confirm div.check_box {height:50px;}
+div.shipment_form div.shipment_confirm div.check_box div.element {height:20px;width:23px;float:right;}
+div.shipment_form div.shipment_confirm div.check_box div.text {height:40px;float:right;width:400px;font-size:14px;}
+
+div.shipment_form div.not_client_address {width:430px;margin:10px 0px 0px 0px}
+div.shipment_form div.not_client_address div.check_box {height:50px;}
+div.shipment_form div.not_client_address div.check_box div.element {height:20px;width:23px;float:right;}
+div.shipment_form div.not_client_address div.check_box div.text {height:40px;float:right;width:400px;font-size:14px;}
+
+div.shipment_form div.address_type div.radio_list_vrt { padding:0;display:block; padding:0px 0px 0px 0px}
+div.shipment_form div.address_type div.radio_list_vrt div.element { clear:both;height:20px;vertical-align:middle;}
+div.shipment_form div.address_type div.radio_list_vrt div.element div.input { width:20px;float:right;}
+div.shipment_form div.address_type div.radio_list_vrt div.element div.text { width:200px;float:right;}
+div.shipment_form div.address_type div.radio_list_vrt div.element div.span { white-space:nowrap; }
+
+div.shipment_form div.address_type div.address_selection div.element div.text span.no_address_match { color:#c4c6ff; font-size:14px;}
+div.shipment_form div.address_type div.address_selection div.element div.text span.address_match { white-space:nowrap; font-size:14px;}
+div.shipment_form div.address_type div.address_selection div.element div.text { float: right; width: 400px; }
+
+div.shipment_form toolbar {  }
+div.shipment_form div.toolbar_button {height:43px;padding:20px 0px 0px 0px}
+div.shipment_form div.toolbar_button a.support_link {color:#1b5ece;line-height:43px;vertical-align:bottom;letter-spacing:1px;}
+div.shipment_form div.toolbar_button a.submit_link { height:43px;width:100px;background:transparent url('Images/loans/end_but.gif') center center no-repeat;display:block; }
+div.shipment_form div.toolbar_button a.submit_link:hover { height:43px;width:100px;background:transparent url('Images/loans/end_but_over.gif') center center no-repeat;display:block; }
+
+div.shipment_form div.toolbar_button a.exit_link { height:36px;width:105px;background:transparent url('Images/loans/yezia_but.jpg') center center no-repeat;display:block; }
+div.shipment_form div.toolbar_button a.exit_link:hover { height:36px;width:105px;background:transparent url('Images/loans/yezia_but_over.jpg') center center no-repeat;display:block; }
+
+input.submit_link { height:36px;width:102px;background:transparent url('Images/loans/end_but.gif') center center no-repeat;float:left; }
+input.submit_link:hover { height:36px;width:102px;background:transparent url('Images/loans/end_but_over.gif') center center no-repeat;float:left; }
+
+div.shipment_form span.comment_tip {color:#b2b2b2;font-size:12px;font-weight:bold;letter-spacing:1px;}
+
+
+div.shipment_form div.result { display:none; margin:20px 0px 0px 0px;direction:rtl; }
+div.shipment_form div.result div.message { background:#E7F4D8;  }
+div.shipment_form div.result div.content { padding:20px 50px 20px 20px; margin:0px 20px 0px 0px;}
+
+div.shipment_form div.result div.success { background:transparent url('images/loans/vi_cut.png') right 22px no-repeat; }
+div.shipment_form div.result div.failure { background:transparent url('images/loans/fault_dialog_image.gif') right 22px no-repeat; }
+
+div.shipment_form div.result div.content div.title { font-size:15px;color:#73A035; font-weight:bold; line-height:30px;vertical-align:middle; direction:rtl;display:none;}
+div.shipment_form div.result div.content div.address span.city { font-weight:bold; }
+div.shipment_form div.result div.content div.address span.street { font-weight:bold; }
+div.shipment_form div.result div.content div.address span.house_number { font-weight:bold; }
+div.shipment_form div.result div.content div.address span.address_formatted { font-weight:bold; }
+div.shipment_form div.result div.content div.address span.phone_number { font-weight:bold; }
+div.shipment_form div.result div.content div.schedule { font-size:14px;color:#000000; font-weight:normal; line-height:40px;vertical-align:middle;display:none;}
+div.shipment_form div.result div.content div.schedule span.date { font-weight:bold;font-family:verdana}
+div.shipment_form div.result div.content div.schedule span.time { font-weight:bold;font-family:verdana}
+div.shipment_form div.result div.content div.exception {color:#c10000;line-height:18px;vertical-align:middle; padding:5px 0px 5px 0px;display:block;
+                                                        font-weight:bold;font-size:14px;}
+                                                    
+div.shipment_form div.result div.content div.support {color:#000000;line-height:18px;vertical-align:middle; padding:5px 0px 5px 0px}
+div.shipment_form div.result div.content div.remark {color:#c10000;font-weight:bold;}
+
+#textSettelement {direction:rtl;}
+#textStreet {direction:rtl;}
+
+div.exception_data {direction:ltr;text-align:left;margin-top:10px;}
+
+iframe.iframe_hidden {display:none}

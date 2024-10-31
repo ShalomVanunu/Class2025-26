@@ -1,0 +1,382 @@
+﻿function createGoogleChart(response)
+{
+    google.charts.load('current', { 'packages': ['corechart', 'bar'] });
+    google.charts.setOnLoadCallback(drawCharts);
+    // Global parameter - index of chart
+    var resIndexGlobal = 0;
+
+    /** Draws charts */
+    function drawCharts() {
+        // Number of charts to draw
+        for (resIndexGlobal = 0; resIndexGlobal < response.length; resIndexGlobal++) {
+            // Type of chart
+            var type = response[resIndexGlobal].Type;
+            // function
+            var drawChart = null;
+            // Chooses a chart that needs to be drawn
+            switch (type) {
+                case "column":
+                    drawChart = drawColumnChart;
+                    break;
+                case "pie":
+                    drawChart = drawPieChart;
+                    break;
+                default:
+                    // EXCEPTION!!!
+            }
+            drawChart();
+        }
+    }
+
+    /** Draws a pie chart */
+    function drawPieChart() {
+        var data = new google.visualization.DataTable();
+        var chartObj = response[resIndexGlobal];
+        var sectorList = chartObj.SectorList;
+        var titles = chartObj.ChartTitles;
+        // Adds columns to data table
+        data.addColumn('string', 'Topping');
+        data.addColumn('number', 'Slices');
+
+        // Sectors of the chart
+        for (var i = 0; i < sectorList.length; i++) {
+            // Sector value of the transactions
+            var value = sectorList[i].Amount;
+            // Nagative values are invalid for a pie chart
+            if(value < 0){
+                continue;
+            }
+
+            // Sector name of the transactions
+            var name = sectorList[i].Name;
+            // Precentage of transactions of the same sector
+            var percent = sectorList[i].Percent.toString();
+            percent = parseFloat(percent).toFixed(2);
+            data.addRow([name + " - " + percent + "%", value]);
+        }
+
+        var options = {
+            height: 350,
+            title: titles.Title,
+            //titleTextStyle: {
+            //    fontSize: 16,
+            //    bold: true
+            //},
+            is3D: true,
+            pieSliceText: 'value',
+            sliceVisibilityThreshold: 0,
+            legend: { position: 'left' }
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById(chartObj.DivId));
+        chart.draw(data, options);
+    }
+
+    function moveTitleRight(title_) {
+
+    }
+
+    /** Draws a column chart */
+    function drawColumnChart() {
+        var data = new google.visualization.DataTable();
+        var chartObj = response[resIndexGlobal];
+        var titles = chartObj.ChartTitles;
+        var transactionListArr = chartObj.TransactionListArr;
+        var addColumnFunc = null;
+        var columnsAmount = 0;
+        // Horizontal axis - String is displayed as a date
+        data.addColumn('string', 'Date');
+        // Vertical axis - Sum of transaction
+        data.addColumn('number', getYearsThatWereTransactions(transactionListArr[0]));
+        //data.addColumn('number', titles.RepresentationVAxis);
+        
+        // Checks if need to compares with columns or slices(pie chart)
+        // Now available only 'Column Chart'
+        switch (chartObj.Cmp) {
+            case "sameDate":
+                // Here come code if we wants to add more columns in same date
+                break;
+            case "differentDate":
+                addColumnFunc = cmpWithDifferentDates;
+                break;
+            default:
+                addColumnFunc = oneColumn;
+        }
+        // Calls to draw function
+        addColumnFunc(data, chartObj, titles);
+
+        var options = {
+            animation: {
+                startup: true,
+                duration: 2000,
+                easing: 'out'
+            },
+            //theme: {
+            //    chartArea: { height: "22%", width: "22%" },
+            //    legend: { position: 'out' },
+            //    titlePosition: 'in'
+            //},
+            tooltip: {
+                //showColorCode: false
+                textStyle: {
+                    //color: 'red'
+                    fontSize: 16,
+                    //bold: true
+                    //italic: true
+                }
+                //trigger: 'selection'
+            },
+            chartArea: { height: "72%", width: "72%" },
+            legend: {position: 'top'},
+            title: titles.Title,
+            focusTarget: 'category',
+            //titleTextStyle: {
+            //    fontSize: 18,
+            //    bold: true
+            //},
+            bar: {
+                groupWidth: "80%"
+            },
+            height: 600,
+            annotations: {
+                alwaysOutside: true,
+                interpolateNulls: true,
+                stem: 'none',
+                stemColor: 'none',
+                textStyle: {
+                    color: 'black',
+                    fontSize: 12,
+                    fontname: 'calibri',
+                    fontbold: true,
+                    auraColor: 'transparent',
+                    Horizantal: true
+                },
+            },
+            hAxis: {
+                //format: 'dd/MM/yyyy',
+                //minorGridlines: {count: 4},
+                title: titles.HAxis,
+                titleTextStyle: {
+                    fontSize: 16,
+                    bold: true
+                }
+            },
+            vAxis: {
+                title: titles.VAxis,
+                titleTextStyle: {
+                    fontSize: 16,
+                    bold: true
+                },
+                gridlines: { count: 7 },
+                format: '#,###,##0.00'
+                
+            }
+        };
+
+        var chart = new google.visualization.ColumnChart(document.getElementById(chartObj.DivId));
+        chart.draw(data, options);
+    }
+
+    /** 
+     * This function draws column from one column
+     * @param {DataTable} data_ - represent a two-dimensional, mutable table of values.
+     * @param {WrapperColumnChart} chartObj_ - Details information - ChartTypes.cs
+     * @param {ColumnChartTitles} titles_ - Details information - ChartTypes.cs
+     */
+    function oneColumn(data_, chartObj_, titles_) {
+        var transactionList = chartObj_.TransactionListArr[0];
+        var i = 0;
+
+        // Annotation of column
+        //data_.addColumn({ type: 'string', role: 'annotation' });
+    
+        for (i = 0; i < transactionList.length; i++) {
+            // Date of transaction
+            var date = new Date(transactionList[i].DebitDate);
+            //var dateString = getDateString(date, "day");
+            var dateString = getDateString(date, titles_.HAxis);
+            // Sum of transaction
+            var sum = transactionList[i].TotalAmount;
+            var annotationSum = (sum === 0 ? "" : sum);
+            
+            //data_.addRow([dateString, sum, "" + annotationSum]);
+            data_.addRow([dateString, sum]);
+        }
+    }
+
+    /** 
+     * This function draws two columns that have a comparison
+     * @param {DataTable} data_ - represent a two-dimensional, mutable table of values.
+     * @param {WrapperColumnChart} chartObj_ - Details information - ChartTypes.cs
+     * @param {ColumnChartTitles} titles_ - Details information - ChartTypes.cs
+     */
+    function cmpWithDifferentDates(data_, chartObj_, titles_) {
+        if (chartObj_.TransactionListArr.length == 1) {
+            oneColumn(data_, chartObj_, titles_);
+            return;
+        }
+
+        var sum1 = 0;
+        var sum2 = 0;
+        var dateString = null;
+        var transactionList1 = chartObj_.TransactionListArr[0];
+        var transactionList2 = chartObj_.TransactionListArr[1];
+        var usedDates = [];
+        var usedDatesLen = transactionList2.length;
+        // transactionList2 index;
+        var j = 0;
+        var i = 0;
+        var date2 = null;
+
+        data_.addColumn('number', getYearsThatWereTransactions(transactionList2));
+        //data_.addColumn('number', titles_.RepresentationVAxis);
+
+        // Init usedDates with 0
+        for(i = 0; i < usedDatesLen; i++){
+            usedDates[i] = 0;
+        }
+
+        // Passes on earlier dates
+        for (i = 0; i < transactionList1.length; i++) {
+            var date1 = new Date(transactionList1[i].DebitDate);
+            date2 = new Date(transactionList2[j].DebitDate);
+                
+            sum1 = transactionList1[i].TotalAmount;            
+            while ( date1.getMonth() > date2.getMonth() ) {
+                j++;
+                date2 = new Date(transactionList2[j].DebitDate);
+            }
+
+            if ((date1.getMonth() === date2.getMonth())) {
+
+                while (date1.getDate() > date2.getDate()) {
+                    j++;
+                }
+                if (date1.getDate() === date2.getDate()) {
+                    usedDates[j] = 1;
+                    // Sum of transaction
+                    sum2 = transactionList2[j].TotalAmount;
+                }
+            }
+
+            // Privious date + next date
+            if (sum2) {
+                dateString = get2DatesString(date1, titles_.HAxis, 1);
+            }
+            else {
+                dateString = getDateString(date1, titles_.HAxis)
+            }
+            
+            data_.addRow([dateString, sum1, sum2]);
+        }
+
+        sum1 = 0;
+        // Passes on later dates
+        // Checks if this date is used
+        for (i = 0; i < transactionList2.length; i++) {
+            if (usedDates[i]) {
+                continue;
+            }
+            date2 = new Date(transactionList2[i].DebitDate);
+
+            sum2 = transactionList2[i].TotalAmount;
+            // Privious date + next date
+            dateString = getDateString(date2, titles_.HAxis);
+
+            data_.addRow([dateString, sum1, sum2]);
+        }
+    }
+
+    /** 
+     * Get years that were transactions
+     * @param {Transaction} transactionList - list of transcations
+     * @return {string} - years that were transactions
+     */
+    function getYearsThatWereTransactions(transactionList) {
+        var min = (new Date(transactionList[0].DebitDate)).getFullYear().toString();
+        var max = (new Date(transactionList[transactionList.length - 1].DebitDate)).getFullYear().toString();
+        
+        // Returns one year or two years(range of dates)
+        return ((min !== max) ? min + " - " + max : min)
+    }
+
+    /** 
+     * Converts the type Date to string and returns it
+     * @param {date} date - Date object
+     * @param {string} type - Date type ('day', 'month', 'year')
+     * @param {num} lastOrNextYear_ - can be -1(last year) or 1(next year)
+     * @return {string} - date
+     */
+    function get2DatesString(date, type, lastOrNextYear_) {
+        var str = "";
+        var additionYear = date.getFullYear() + lastOrNextYear_;
+        //Converts the type Date to string
+        switch (type) {
+            case "תאריכי חיוב":
+                str += padTo2Digits(date.getDate()) + "/";
+                // falls through
+            case "חודשים":
+                str += padTo2Digits(date.getMonth() + 1) + "/";
+                // falls through
+            case "year":
+                if (lastOrNextYear_ < 0) {
+                    str += additionYear + "-" + date.getFullYear();
+                }
+                else {
+                    str += date.getFullYear() + "-" + additionYear;
+                }
+                break;
+            default:
+                // Exception - Invalid input
+        }
+        return str;
+    }
+
+    /** 
+     * Converts the type Date to string and returns it
+     * @param {date} date - Date object
+     * @param {string} type - Date type ('day', 'month', 'year')
+     * @return {string} - date
+     */
+    function getDateString(date, type) {
+        var str = "";
+        //Converts the type Date to string
+        switch (type) {
+            case "תאריכי חיוב":
+                str += padTo2Digits(date.getDate()) + "/";
+                // falls through
+            case "חודשים":
+                str += padTo2Digits(date.getMonth() + 1) + "/";
+                // falls through
+            case "year":
+                str += date.getFullYear();
+                break;
+            default:
+                // Exception - Invalid input
+        }
+        return str;
+    }
+
+    /**
+     * Padding the number to two digits
+     * @param{number} num - Number
+     * @return {string} - Number with 2 digits
+     */
+    function padTo2Digits(num) {
+        return ( num < 10 ? "0" : "" ) + num;
+    }
+
+    /**
+     * Creates new offset for title - x
+     * @param{number} oldOffset - old offset
+     * @param{string} title - title
+     * @return {string} - Number with 2 digits
+     */
+    function CreateOffsetTitleX(oldOffset, title) {
+        const SMALL_CHAR_LENGTH_IN_GUI = 8;
+        const BIG_CHAR_LENGTH_IN_GUI = 9;
+        var charLenInGui = (title.length > 48 ? SMALL_CHAR_LENGTH_IN_GUI : BIG_CHAR_LENGTH_IN_GUI);
+
+        return oldOffset - (title.length * charLenInGui);
+    }
+}

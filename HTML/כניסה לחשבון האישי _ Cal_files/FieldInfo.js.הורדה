@@ -1,0 +1,118 @@
+    function FormToolTip()
+    { 
+        this.getToolTipLayer = function(p_sender)
+        {
+            return p_sender.parentNode.getElementsByTagName("div")[0];
+        }
+    
+        this.hideFormTooltip = function (p_sender, p_event, p_content)
+        {
+            try
+            {
+                _gridToolTip = this.getToolTipLayer(p_sender);
+                _gridToolTip.innerHTML = "";
+                _gridToolTip.style.visibility = "hidden";
+            }
+            catch(e) {alert(e.description);}
+        }
+    
+        this.showFormTooltip = function (p_sender, p_event, p_content)
+        {
+            try
+            {
+                _gridToolTip = this.getToolTipLayer(p_sender);
+              
+                _gridToolTip.innerHTML = "<div style='background:cyan'>" + p_content + "</div>"
+
+                var h = parseInt(_gridToolTip.offsetHeight);
+                var w = (parseInt(_gridToolTip.offsetWidth) < 200 ? 200 : parseInt(_gridToolTip.offsetWidth))
+
+                _gridToolTip.style.height = h + "px";
+                _gridToolTip.style.width = w + "px";
+
+                _gridToolTip.style.left = (w) + "px";
+                _gridToolTip.style.top = (h) + "px";
+
+                _gridToolTip.innerHTML = _gridToolTip.innerHTML + 
+                    "<iframe src='../../Images/back_button.gif' frameborder='1' border='1' style='visibility:visible;position:absolute;top:0px;left:0px;;z-Index:-1;height:" + h + "px;width:" + w + "px;'></iframe>";
+                    
+                _gridToolTip.style.visibility = "visible";   
+            }
+            catch(e){alert(e.description);}
+        }
+    }
+    
+    var _activeFieldInfo;
+    
+    function show_info(eSrc)
+    {
+        try
+        {
+            var table = bubbleForElement(eSrc, "TABLE")
+            
+            var container = table.rows[1].cells[0];
+            var frame = container.getElementsByTagName("IFRAME")[0];
+
+            _activeFieldInfo = container.getElementsByTagName("DIV")[0];
+
+            _activeFieldInfo.style.display = "";
+
+            frame.height = _activeFieldInfo.getElementsByTagName("TABLE")[0].offsetHeight + "px";
+            frame.style.width = _activeFieldInfo.getElementsByTagName("TABLE")[0].offsetWidth+2 + "px";            
+        }
+        catch(e){}
+    }
+    
+    function hide_info(eSrc)
+    {
+        try
+        {
+            _activeFieldInfo.style.display = "none";
+        }
+        catch(e)
+        {              
+            alert(e.description);
+        }
+    }
+    
+    var _activeFieldInfoCalMail;
+    var _activeIconCalMail;
+    
+    function show_infoCalMail(eSrc)
+    {
+        try
+        {
+            if (_activeFieldInfoCalMail != null)
+                _activeFieldInfoCalMail.style.display = "none";
+        
+            if (_activeIconCalMail != null)
+                _activeIconCalMail.style.display = "";
+        
+            _activeIconCalMail = eSrc;
+            
+            _activeIconCalMail.style.display = "none";
+
+            var table = bubbleForElement(eSrc, "TABLE")
+            
+            var container = table.rows[1].cells[0];
+            var frame = container.getElementsByTagName("IFRAME")[0];
+
+            _activeFieldInfoCalMail = container.getElementsByTagName("DIV")[0];
+
+            _activeFieldInfoCalMail.style.display = "";
+
+            frame.height = _activeFieldInfoCalMail.getElementsByTagName("TABLE")[0].offsetHeight + "px";
+            frame.style.width = _activeFieldInfoCalMail.getElementsByTagName("TABLE")[0].offsetWidth+2 + "px";            
+        }
+        catch(e) {}
+    }
+    
+    function hide_infoCalMail(eSrc)
+    {
+        try
+        {
+            _activeFieldInfoCalMail.style.display = "none";
+            _activeIconCalMail.style.display = "";   
+        }
+        catch(e){ }
+    }

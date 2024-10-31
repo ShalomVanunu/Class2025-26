@@ -1,0 +1,117 @@
+﻿var tidSm; //gets the timeouts Id to clear
+var tidMto; //gets the messageTimeout Id
+var sessionTimeOut = null;
+$(document).ready(function()
+{
+    if (sessionTimeOut != undefined && sessionTimeOut != null) //User Is Logged In
+    {
+        var isWithModal = !isIE6();
+
+        //Define InboxDialog
+        $("#sessionDiv").dialog({
+            frameId: 'sessionIframe',
+            position: 'center',
+            width: 330,
+            minHeight: 160,
+            modal: true, autoOpen: false,
+            hide: 'fold', show: 'slide',
+            closeOnEscape: false, draggable: false, resizable: false
+        });
+
+        $("#siteContent").ajaxStop(function()
+        {
+            clearTimeout(tidSm);
+            tidSm = setTimeout(sessionMessage, sessionTimeOut);
+        });
+        tidSm = setTimeout(sessionMessage, sessionTimeOut);
+    }
+});
+
+function sessionMessage()
+{
+    var messageTimeout = 60000;
+    $("#sessionDiv").dialog("open");
+    tidMto = setTimeout(closeSession, messageTimeout);
+    setTimeout(changeSecond, 1000);
+
+}
+
+function changeSecond()
+{
+    var seconds = parseInt($("#secondsSpan").text());
+    if (tidMto == -1)
+    {
+        return;
+    }
+    else if (--seconds > -1)
+    {
+        $("#secondsSpan").text(seconds);
+        $("#p_first").attr("aria-label", "לצורך שמירה על פרטיותך ומטעמי אבטחת המידע, בעוד " + seconds + " שניות יבוצע ניתוק מהשירות.");
+        setTimeout(changeSecond, 1000);
+    }
+    else
+    {
+        closeSession();
+    }
+}
+
+function keepSessionAlive()
+{
+    clearTimeout(tidMto); //Clear the close session if nothing choosed by the user
+    tidMto = -1;
+    retriveSession();
+    $("#sessionDiv").dialog("close");
+    return false;
+}
+
+function closeSession()
+{
+    window.location.href = logOutUrl;
+    return false;
+}
+
+function retriveSession()
+{
+    var results;
+    var options =
+            {
+                error: function(msg)
+                {
+                    closeSession();
+                },
+                type: "POST",
+                url: currentPageName + "/KeepSessionLive",
+                contentType: "application/json; charset=utf-8",
+                data: "{'check':'check'}",
+                dataType: "json",
+                async: false,
+                success: function(response)
+                {
+
+                }
+
+            };
+    jQuery.ajax(options);
+}
+
+function logEventClickOnTzrofha(tzrofhaName) {
+    debugger;
+    var results;
+    var options =
+            {
+                error: function (msg) {
+                    closeSession();
+                },
+                type: "POST",
+                url: currentPageName + "/LogClickOnTzrofha",
+                contentType: "application/json; charset=utf-8",
+                data: "{'tzrofhaName':"+tzrofhaName+'}',
+                dataType: "json",
+                async: false,
+                success: function (response) {
+
+                }
+
+            };
+    jQuery.ajax(options);
+}

@@ -1,0 +1,63 @@
+﻿
+function createCookie(name, value, days) 
+{
+    var expires = "";
+    
+    if (days) 
+    {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else
+    {
+        expires = "";
+    }
+    
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+function readCookie(name) 
+{
+    var nameEQ = name + "=";
+    var ca = document.cookie.split(';');
+    
+    for (var i = 0; i < ca.length; i++) 
+    {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        
+        if (c.indexOf(nameEQ) == 0) 
+        {
+            return c.substring(nameEQ.length, c.length);
+        }
+    }
+    return null;
+}
+
+function eraseCookie(name) 
+{
+    //alert('before eraseCookie');
+    //readCookie(name);
+    createCookie(name, "", -1);
+    //alert('after eraseCookie');
+    //readCookie(name);	
+}
+
+
+function cancelBackButton() 
+{
+    //alert('in cancelBackButton')
+    //alert(this.document.location.href.indexOf("Login") )
+    if (this.document.location.href.indexOf("Login") < 0) 
+    {
+        oCookie = readCookie("CalLoggedIn");
+        //alert("COOKIE VALUE : " + oCookie)
+        if (oCookie == null) 
+        {
+            //alert('redirecting to /SRC/SCREENS/AccountManagement/Login.aspx');
+            //history.go(1);
+            this.document.location.href = "../AccountManagement/Login.aspx";
+        }
+    }
+}

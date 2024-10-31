@@ -1,0 +1,238 @@
+﻿function WriteOnlyNumeric(e)
+{var realEvent=new TrueEvent(e);var keyPressed=realEvent.key;if(keyPressed==8||keyPressed==46||keyPressed==9||keyPressed==0||keyPressed==13||keyPressed==35||keyPressed==36)
+{return true;}
+if((keyPressed>=37)&&(keyPressed<=40))
+{return false;}
+if((keyPressed>=48)&&(keyPressed<=57))
+{return true;}
+stopReturnValue(e);return false;}
+function stopReturnValue(e)
+{if(e.preventDefault)
+{e.preventDefault();}
+else
+{e.returnValue=false;}}
+function TrueEvent(e)
+{try
+{var ie=window.event!=null&&navigator.userAgent.indexOf('MSIE')>0;var e=(ie)?window.event:e;this.sourceElement=(ie)?e.srcElement:e.target;this.targetElement=(ie)?e.toElement:e.relatedTarget;this.button=(ie)?e.button:e.which;this.key=(ie)?e.keyCode:e.which;this.shiftKey=e.shiftKey;this.type=e.type;this.posX=new MousePos(e).posX;this.posY=new MousePos(e).posY;}
+catch(e){return null;}}
+var choosenCount;var maxChoosen;var arrChoosen="";var choosenId;var lblCountId;var preChkBoxName="chk_";var preDivName="div_";var lblPreCount="spnCount_";var lblMsgId;var strSessionID;var LoginErrCreditCount=0;var LoginErrIDCount=0;var LoginErrCvvCount=0;var CardNumberValidatorId;var vldShortCVVValidatorId;var btnID;function chkValidators()
+{for(k=0;k<Page_Validators.length;k++)
+{if(!Page_Validators[k].isvalid)
+{if(Page_Validators[k].id.indexOf("RECVV")!=-1)
+{if(LoginErrCvvCount>2)
+Page_Validators[k].errormessage="שדה 3 ספרות אינו תקין. באפשרותך להעזר במוקד שירות לקוחות בטלפון 3733*";else
+LoginErrCvvCount++;}
+else if(Page_Validators[k].id.indexOf("CustomValidatorID")!=-1)
+{if(LoginErrIDCount>2)
+Page_Validators[k].errormessage="אחד השדות שהוזנו אינו תקין, יש להזין שנית. באפשרותך להעזר במוקד שירות לקוחות בטלפון 3733*";else
+LoginErrIDCount++;}
+else if(Page_Validators[k].id.indexOf("vldRangeCard")!=-1)
+{if(LoginErrCreditCount>2)
+Page_Validators[k].errormessage="שדה מספר כרטיס אשראי אינו תקין. באפשרותך להעזר במוקד שירות לקוחות בטלפון 3733*";else
+LoginErrCreditCount++;}
+document.getElementById('tblErr').style.display='block';}}}
+function hideShowSpanOfNote(ctrlIdNum,isByUser)
+{var spnCtrlNote=document.getElementById("spnOutetCount_"+ctrlIdNum);var spnCtrlCount=document.getElementById("spnCount_"+ctrlIdNum);if(isByUser)
+{spnCtrlNote.style.display="block";spnCtrlNote.style.float="right";spnCtrlCount.style.display="block";spnCtrlCount.style.float="right";}
+else
+{spnCtrlNote.style.display="none";spnCtrlCount.style.display="none";}}
+function hideChkBoxInGroup(groupNum)
+{var tdHolderOfThatPart=document.getElementById("chkHolder_"+groupNum);var tdTheNextTd=document.getElementById("chkHolderNextTd_"+groupNum);tdHolderOfThatPart.style.display="none";tdTheNextTd.className="tdAfterChkBox";}
+function chkControlSelectForGroup(ctrlId,isByUser)
+{var ctrl=document.getElementById(ctrlId);var CountChineId=ctrlId.replace(preChkBoxName,lblPreCount);if(ctrl.checked)
+{if(maxChoosen>choosenCount||isByUser==false)
+{changeBackImg(groupBoxMiddlePart,"middleOfGroupBoxHighLight");arrChoosen+="_"+ctrlId.replace(preChkBoxName,"");chaineId=ctrlId.replace(preChkBoxName,"");arrAll=arrAll.replace("_"+chaineId,"");choosenCount++;changeCountText(null,false);var imgCurrLogos=document.getElementById("imgLogos_"+ctrlId.replace(preChkBoxName,""));imgCurrLogos.src=imgUrlLogosSelected;}
+else
+{url="PopUpMsg.aspx?err=211";openPopUp(url,460,82);return false;}}
+else
+{arrAll+="_"+ctrlId.replace(preChkBoxName,"");changeBackImg(groupBoxMiddlePart,"middleOfGroupBox");var imgCurrLogos=document.getElementById("imgLogos_"+ctrlId.replace(preChkBoxName,""));imgCurrLogos.src=imgUrlLogos;chaineId=ctrlId.replace(preChkBoxName,"");arrChoosen=arrChoosen.replace("_"+chaineId,"");choosenCount--;changeCountText(null,false);}
+document.getElementById("numSelected").value=choosenCount;return true;}
+function chkControlSelect(ctrlId,isByUser)
+{var ctrl=document.getElementById(ctrlId);var backImgChineId=ctrlId.replace(preChkBoxName,preDivName);var CountChineId=ctrlId.replace(preChkBoxName,lblPreCount);if(ctrl.checked)
+{if(maxChoosen>choosenCount||isByUser==false)
+{var chainId=ctrlId.replace(preChkBoxName,"");var hiddenNote=document.getElementById("hid_note_"+chainId);var parentElement=document.getElementById(CountChineId);if(parentElement!=null&&hiddenNote!=null)
+{hideShowSpanOfNote(ctrlId.replace(preChkBoxName,""),true);parentElement.style.display="block";hiddenNote.style.display="block";}
+changeBackImg(backImgChineId,"divChinesSelectedTemplate");arrChoosen+="_"+ctrlId.replace(preChkBoxName,"");choosenCount++;changeCountText(CountChineId,isByUser);}
+else
+{url="PopUpMsg.aspx?err=211";openPopUp(url,460,82);return false;}}
+else
+{changeBackImg(backImgChineId,"divChinesTemplate");chaineId=ctrlId.replace(preChkBoxName,"");arrChoosen=arrChoosen.replace("_"+chaineId,"");choosenCount--;changeCountText(null,false);var chainId=ctrlId.replace("chk_","");var hiddenNote=document.getElementById("hid_note_"+chainId);var parentElement=document.getElementById(CountChineId);if(parentElement!=null&&hiddenNote!=null)
+{hideShowSpanOfNote(chainId,true);parentElement.style.display="block";hiddenNote.style.display="block";parentElement.innerHTML="<span class=\"TrustPlanExtraNotes\" style='display:block'>"+hiddenNote.value+"</span>";}}
+document.getElementById("numSelected").value=choosenCount;return true;}
+function chkIllegalSelection()
+{if(chkIfSelected())
+{if(choosenCount>maxChoosen)
+{url="PopUpMsg.aspx?err=220";openPopUp(url,460,82);return false;}
+else
+return true;}
+else
+return true;}
+function chkIfSelected()
+{if(choosenCount!=null&&choosenCount>0)
+return true;else
+return false;}
+function chkPosPostBack(obj,args)
+{if(chkIfSelected())
+{try
+{var btnTarget=window.event.srcElement;if(btnTarget==null)
+btnTarget=window.event.target;}
+catch(e){}
+args.IsValid=true;}
+else
+args.IsValid=false;}
+function changeBackImg(ctrl,strClassName)
+{var divCtrl=document.getElementById(ctrl);divCtrl.className=strClassName;}
+function changeCountText(chineId,chkState)
+{if(choosenId!=null&&document.getElementById(choosenId)!=null)
+{var currCountSpan=document.getElementById(choosenId);currCountSpan.innerHTML="";document.getElementById(currCountSpan.parentNode.id).style.display="none";}
+if(lblCountId!=null&&document.getElementById(lblCountId)!=null)
+{url="PopUpMsg.aspx?choosenCount="+choosenCount+"&arrChoosen="+arrChoosen+"&arrAll="+arrAll
+var strCahines;if(choosenCount>0)
+strCahines="<a href='javascript:void(0)' onclick='openPopUp(\""+url+"\", 510, "+"510"+")'>רשתות ומותגים</a>";else
+strCahines="רשתות ומותגים";if(parseInt(choosenCount)>parseInt(maxChoosen))
+var strText="<b><span class='choosenLableLink'>נבחרו "+choosenCount+" "+strCahines+"</u></span></b>";else
+var strText="<b><span class='choosenLableLink'>בחרת "+choosenCount+" "+strCahines+"</u> מתוך "+maxChoosen+"</span></b>";document.getElementById(lblCountId).innerHTML=strText;}
+if(chkState)
+{var strText="<b>בחרת "+choosenCount+" מתוך "+maxChoosen+"</b>";var currCountSpan=document.getElementById(chineId);currCountSpan.innerHTML=strText;document.getElementById(currCountSpan.parentNode.id).style.display="block";currCountSpan.style.display="block";choosenId=chineId;}
+else
+{choosenId=null;}}
+function openCalOnlinePopUp(url,width,height)
+{if(screen.width<1024)
+{width-=100;height-=100;}
+var calTrustPlanPopUp=window.open(url,"popUpWin","screenX=10px,screenY=10px,left=10px,top=10px,toolbar=no,location=no,links=no,directories=no,status=yes,menubar=no,scrollbars=1,resizable=no,width="+width+",height="+height);calTrustPlanPopUp.focus();}
+function openPopUp(url,width,height)
+{var top="100px";if(height>500)
+{strScroll=1;top="50px";}
+else
+strScroll=0;if(parseInt(width)==400)
+{width=390;winName="_blank";}
+else
+{if(parseInt(width)==600)
+winName="_blank";else
+winName="myWin";}
+if(strSessionID!=null)
+{var strPreQueryString;if(url.indexOf("?")==-1)
+strPreQueryString="?";else
+strPreQueryString="&";url=url.toLowerCase().replace("popupmsg.aspx","updateSession.aspx");url+=strPreQueryString;url+="abd="+strSessionID;}
+var urlSibel=document.getElementById("hiddenURLFromSibel");if(urlSibel!=null&&urlSibel.value!="")
+{urlSibel=urlSibel.value;url+="&"+urlSibel;}
+window.open(url,winName,"screenX=250px,screenY="+top+",left=250px,top="+top+",toolbar=no,location=no,links=no,directories=no,status=yes,menubar=no,scrollbars="+strScroll+",resizable=no,width="+width+",height="+height);}
+function openTrusPlanChart(eSrc,e)
+{try
+{var chartFloat=document.getElementById("divTrustPlanChart");chartFloat.style.display="";}
+catch(e){alert("error : "+e.description)}}
+function closeTrusPlanChart()
+{document.getElementById("divTrustPlanChart").style.display="none";}
+function openDivGroupPopUp(evt,chaineId)
+{this.posX=new MousePos(evt).posX;this.posY=new MousePos(evt).posY;document.getElementById(chaineId).style.top=this.posY-10+"px";if(this.posX>230)
+document.getElementById(chaineId).style.left=this.posX-230+"px";else
+document.getElementById(chaineId).style.left=10+"px";document.getElementById(chaineId).style.display="block";}
+function closeDiv(evt,chaineId)
+{document.getElementById(chaineId).style.display="none";}
+var submitted=false;function SubmitTheForm(btnObj)
+{if(submitted==true)
+return false;document.forms[0].submit();btnObj.disabled=true;submitted=true;return true;}
+function isCorrectIDNumber(source,arguments)
+{try
+{__defaultFired=false;}
+catch(e){}
+sum=0;mul=1;strId=arguments.Value;stringLen=strId.length;if(stringLen<6)
+{arguments.IsValid=false;return false;}
+for(i=0;i<stringLen;i++)
+{digit=strId.substring(stringLen-i-1,stringLen-i);tproduct=parseInt(digit,10)*mul;if(tproduct>=10)
+{sum+=(tproduct%10)+1;}
+else
+{sum+=tproduct;}
+if(mul==1)
+mul++;else
+mul--;}
+if(sum==0)
+{arguments.IsValid=false;return false;}
+if((sum%10)==0)
+{arguments.IsValid=true;return true;}
+else
+{arguments.IsValid=false;return false;}}
+function selectAllChk(isChecked)
+{for(var i=0;i<document.forms[0].length;i++)
+{ctrl=document.forms[0].elements[i];if(ctrl.name.indexOf("chk_")!=-1)
+{ctrl.checked=isChecked;}}}
+var m_jsPageMode='calonline'
+function openDetails()
+{url='InformationAdditional.aspx?frm='+m_jsPageMode;window.open(url);}
+function getFlash()
+{document.getElementById("tdFlash").innerHTML='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="809px" height="261px" id="page" align="middle"><param name="allowScriptAccess" value="sameDomain" /> '+'<param name="movie" value="../../IMAGES/TrustPlan/FlashTrustPlan/home809x261.swf" /> '+'<param name="quality" value="high" /> '+'<param name="bgcolor" value="#ffffff" /> '+'<param name="wmode" value="transparent"/>'+'<embed src="../../IMAGES/TrustPlan/FlashTrustPlan/home809x261.swf" quality="high" bgcolor="#ffffff" width="809px" height="261px" name="page" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>';}
+function getCalOnlineFlash()
+{document.getElementById("tdFlash").innerHTML='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="726px" height="261px" id="page" align="middle"><param name="allowScriptAccess" value="sameDomain" /> '+'<param name="movie" value="../../IMAGES/TrustPlan/FlashTrustPlan/home726x261.swf" /> '+'<param name="quality" value="high" /> '+'<param name="bgcolor" value="#ffffff" /> '+'<param name="wmode" value="transparent"/>'+'<embed src="../../IMAGES/TrustPlan/FlashTrustPlan/home726x261.swf" quality="high" bgcolor="#ffffff" width="726px" height="261px" name="page" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>';}
+function getSmallFlash()
+{document.getElementById("tdFlash").innerHTML='<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="https://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0" width="590px" height="261px" id="page" align="middle"><param name="allowScriptAccess" value="sameDomain" /> '+'<param name="movie" value="../../IMAGES/TrustPlan/FlashTrustPlan/home590x261.swf" /> '+'<param name="quality" value="high" /> '+'<param name="bgcolor" value="#ffffff" /> '+'<param name="wmode" value="transparent"/>'+'<embed src="../../IMAGES/TrustPlan/FlashTrustPlan/home590x261.swf" quality="high" bgcolor="#ffffff" width="590px" height="261px" name="page" align="middle" allowScriptAccess="sameDomain" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" /></object>';}
+function main800X600()
+{try
+{document.getElementById("tblMain").style.width="590px";document.getElementById("tblInnerRight").style.width="100%";var width="";if(navigator.appName!="Netscape")
+width="370px"
+else
+width="380px";document.getElementById("tdRight").style.width=width;}
+catch(e){}}
+function resizeWindow(bChangeWidth)
+{if(document.getElementById('body1').clientHeight>600)
+winHeight=600;else
+{try
+{winHeight=document.getElementById('body1').clientHeight+MyWinHeight;if(navigator.appName!="Microsoft Internet Explorer"&&MyWinHeight==105)
+winHeight+=198;}
+catch(e)
+{if(navigator.appName=="Opera")
+winHeight=document.getElementById('body1').clientHeight-18;else
+winHeight=document.getElementById('body1').clientHeight;}
+if(navigator.userAgent.indexOf("Windows NT 5.1")!=-1)
+winHeight+=10;}
+if(document.body.clientWidth>489)
+{if(navigator.appName=="Microsoft Internet Explorer")
+if(navigator.userAgent.indexOf("MSIE 7")!=-1)
+{if(document.body.clientWidth>590)
+{window.resizeTo(document.getElementById('body1').clientWidth+30,winHeight+235);}
+else
+window.resizeTo(document.getElementById('body1').clientWidth+130,winHeight+140);}
+else
+{if(document.body.clientWidth>590)
+window.resizeTo(document.getElementById('body1').clientWidth+5,winHeight-60);else
+window.resizeTo(document.getElementById('body1').clientWidth+130,winHeight+50);}
+else if(navigator.appName=="Netscape")
+{window.resizeTo(document.getElementById('body1').clientWidth+130,winHeight+53);}
+else if(navigator.appName=="Opera")
+{window.resizeTo(document.getElementById('body1').clientWidth+130,winHeight+30);}
+else
+window.resizeTo(document.getElementById('body1').clientWidth+130,winHeight+30);}
+else
+{if(bChangeWidth==true)
+{if(navigator.appName=="Netscape")
+winHeight=winHeight+15;if(navigator.userAgent.indexOf("MSIE 7")!=-1)
+winHeight=winHeight+25;try
+{width=document.getElementById('body1').clientWidth+60+MyWinWidth;}
+catch(e)
+{if(navigator.appName=="Netscape"&&document.getElementById('body1').clientWidth==350)
+{width=394;}
+else if(navigator.appName=="Opera")
+width=394;else
+{if(navigator.appName=="Netscape")
+width=document.getElementById('body1').clientWidth+10;else
+{width=document.getElementById('body1').clientWidth+10;}}}}
+else
+width=document.getElementById('body1').clientWidth+6;if(navigator.appName=="Microsoft Internet Explorer")
+{if(navigator.userAgent.indexOf("MSIE 7")!=-1)
+{if(width==360)
+window.resizeTo(width+35,winHeight+70);else if(width==444)
+{window.resizeTo(width+35,winHeight+70);}
+else
+window.resizeTo(width+4,winHeight+72);}
+else
+{if(width==444)
+window.resizeTo(width+35,winHeight+49);else
+window.resizeTo(width,winHeight+45);}}
+else if(navigator.appName=="Netscape")
+window.resizeTo(width,winHeight+49);else if(navigator.appName=="Opera"&&winHeight==82)
+window.resizeTo(width,winHeight+150);else if(navigator.appName=="Opera")
+window.resizeTo(width,winHeight+60);else
+window.resizeTo(width,winHeight+30);}}
+function goToLogin(p_url)
+{var fakeLink=document.createElement("a");if(typeof(fakeLink.click)=="undefined")
+location.href=p_url;else
+{fakeLink.href=p_url;document.body.appendChild(fakeLink);fakeLink.click();}}

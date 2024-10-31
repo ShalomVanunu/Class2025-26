@@ -1,0 +1,240 @@
+﻿/*
+.content_column div.content_title {
+    background: none;
+}
+
+td.content_column td.top_right,
+td.content_column td.top_middle,
+td.content_column td.top_left,
+td.content_column td.middle_left,
+td.content_column td.middle_right,
+td.content_column td.bottom_right,
+td.content_column td.bottom_left,
+td.content_column td.bottom_middle {
+    border: none;
+}
+
+    td.content_column td.top_left img,
+    td.content_column td.top_right,
+    td.content_column td.top_middle {
+        display: none !important;
+    }
+
+td.content_column div.inner_mid {
+    margin: 0;
+}
+*/
+
+td.content_column td.bottom_middle {
+    width: 640px;
+    /*padding-right: 20px;*/
+    background: white; /*ITAY MOST IMPORTANT PROBLEM.*/
+}
+
+td.content_column td.bottom_middle_2013 {
+    width: 640px;
+    background: white;
+}
+
+table.login td.vld_message {
+    width: 100%;
+}
+
+    table.login td.vld_message span {
+        font-size: .8em;
+        width: 100%;
+    }
+
+div.login-otp-form div.login-continue {
+    text-align: center;
+}
+
+    div.login-otp-form div.login-continue input.button_submit {
+        background-image: url("../../App_Themes/Default/Images/submit-login.png") !important;
+        width: 104px !important;
+        height: 47px !important;
+        float: none !important;
+    }
+
+        div.login-otp-form div.login-continue input.button_submit.step2 {
+            background-image: url("../../App_Themes/Default/Images/enter-button.png") !important;
+            background-size: 95%;
+        }
+
+div.login_secure {
+    background-image: url("../../App_Themes/Default/Images/icon_lock.png");
+    background-position: right 0px;
+    width: 100%;
+    margin: auto;
+    color: #555;
+    clear: both;
+    margin-right: -15px;
+    height: 90px;
+}
+
+    div.login_secure a {
+        text-decoration: underline !important;
+        color: #555 !important;
+    }
+
+    div.login_secure div.text {
+        height: auto;
+        width: auto;
+        padding-top: 20px;
+    }
+
+div.login-otp-form div.login-input-align-bottom {
+    padding-top: 3px;
+}
+
+.red_border {
+    border: 1px solid red !important;
+}
+
+div.login-otp-form div.login-phone-remarks {
+    color: #444;
+    text-align: center;
+    margin: 0 auto;
+}
+
+    div.login-otp-form div.login-phone-remarks ul li:before {
+        content: normal;
+    }
+
+.boxy input, div.login-otp-form input {
+    text-align: right;
+    padding: 1px 5px;
+    font-size: 11px;
+    margin-top: 48px;
+}
+
+    .boxy input.textbox {
+        width: 75%;
+        margin: auto;
+        display: block;
+        font-size: 14px;
+        height: 26px;
+        padding-right: 15px;
+        line-height: 24px\9;
+    }
+
+.placeholder {
+    color: #aaa;
+}
+
+
+div.login-otp-form div.error-summary {
+    height: 44px;
+}
+/******************************************************************/
+
+
+#login-forms fieldset {
+    width: 45%;
+    float: right;
+    margin: 0;
+    padding: 10px;
+    border: 0;
+    border: 1px solid #E2E2E2;
+}
+
+    #login-forms fieldset:first-child {
+        margin-left: 10px;
+    }
+
+    #login-forms fieldset .title {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        color: #005288;
+        margin-bottom: 20px;
+    }
+
+    #login-forms fieldset:last-child .title {
+        color: #00b3c0;
+    }
+
+    #login-forms fieldset p {
+        height: 46px;
+        padding: 0 40px;
+        margin: 0;
+    }
+
+        #login-forms fieldset p.password {
+            margin-bottom: 20px !important;
+        }
+
+        #login-forms fieldset p.otppassword {
+            display: none;
+        }
+
+        #login-forms fieldset p.captha {
+            display: none;
+        }
+        
+        
+    #login-forms fieldset input {
+        margin: auto;
+        display: block;
+        font-size: 14px;
+        height: 26px;
+        border: 1px solid #cdcbc8;
+        width: 100%;
+    }
+
+        #login-forms fieldset input.error {
+            border-color: red;
+        }
+
+    #login-forms fieldset .error, #login-forms fieldset .error-message {
+        font-size: 12px;
+        color: red;
+    }
+
+    #login-forms fieldset .error-message {
+        text-align:center;
+    }
+
+
+
+button.login, button.login-otp {
+    background: url("../../App_Themes/Default/Images/enter-login.png") no-repeat;
+    height: 44px;
+    width: 101px;
+    overflow: hidden;
+    text-indent: -99999999px;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+button.login-otp {
+    background-image: url("../../App_Themes/Default/Images/submit-login.png");
+}
+
+
+div.forget-password {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+    div.forget-password a {
+        color: #000;
+        text-decoration: underline !important;
+        background: url("../../App_Themes/Default/Images/bluearrow.gif") no-repeat right 6px;
+        padding-right: 7px;
+    }
+
+button.join {
+    background: url("../../App_Themes/Default/Images/joiner.png") no-repeat;
+    height: 22px;
+    width: 128px;
+    overflow: hidden;
+    text-indent: -99999999px;
+    border: 0;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}

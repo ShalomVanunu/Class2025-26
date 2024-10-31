@@ -1,0 +1,6 @@
+import { p as patchBrowser, g as globals, b as bootstrapLazy } from './core-3d519e06.js';
+
+patchBrowser().then(options => {
+  globals();
+  return bootstrapLazy([["uc-using-cookies",[[0,"uc-using-cookies",{"siteName":[1,"site-name"],"expDays":[2,"exp-days"],"isMouseOver":[32]}]]]], options);
+});

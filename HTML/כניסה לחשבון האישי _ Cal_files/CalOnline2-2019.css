@@ -1,0 +1,2882 @@
+﻿img.calmail_adv_link {
+    border-style: none;
+}
+
+div.dont_show_on_screen {
+    position: absolute;
+    z-index: -2;
+    top: -3000px;
+}
+
+.DisplayNone {
+    display: none;
+}
+
+input.NoBorderInTxtBox {
+    border-style: none;
+    border: 0px;
+}
+
+div.special_logo {
+    display: inline;
+}
+
+input.TextBox {
+    border: 1px solid #CCCCCA;
+    height: 22px;
+    border-radius: 4px;
+    color: #000000;
+    margin: 0px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+
+
+
+.block_right {
+    display: block;
+    float: right;
+}
+
+.clear_both {
+    clear: both;
+}
+
+.bold_text {
+    font-weight: bold;
+}
+
+.block_left {
+    display: block;
+    float: left;
+}
+
+img.info_icon {
+    margin-bottom: -2px;
+    padding-right: 2px;
+    padding-left: 2px;
+    width: 16px;
+}
+
+a.arrow_link {
+    color: #1b5ece;
+    text-decoration: none;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+    a.arrow_link:hover {
+        text-decoration: underline;
+    }
+
+a.in_text_arrow_link {
+    color: #005288;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.in_text_arrow_link:hover {
+    text-decoration: underline;
+}
+
+a.link_underline {
+    text-decoration: underline
+}
+
+div.arrow_before_link {
+    /*background-image: url(Images/blue_arrow.gif);
+    float: right;
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 4px;
+    margin-top: 6px;
+    font-size: 0px;*/
+}
+
+div.arrow_before_link_up {
+    /*background-image: url(Images/2019/dropdown_up.png);
+    float: right;
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 8px;
+    margin-top: 0px;
+    font-size: 0px;*/
+}
+
+div.arrow_before_link_down {
+    /*background-image: url(Images/blue_arrow_down.gif);
+    float: right;
+    padding: 0px;
+    background-repeat: no-repeat;
+    height: 10px;
+    width: 8px;
+    margin-top: 0px;
+    font-size: 0px;*/
+}
+
+div.arrow_before_link_down_shivuki {
+    /*background-image: url(Images/big_arrow_down.gif);
+    float: right;
+    background-repeat: no-repeat;
+    height: 16px;
+    width: 8px;
+    margin-top: 0px;
+    font-size: 0px;*/
+}
+
+div.arrow_before_link_left {
+    /*background-image: url(Images/big_arrow_left.gif);
+    float: right;
+    background-repeat: no-repeat;
+    height: 10px;
+    width: 8px;
+    margin-top: 0px;
+    font-size: 0px;*/
+}
+
+span.select_cards {
+    display: inline-block;
+    margin: 5px 0px 5px 0px;
+
+    text-decoration: none;
+    cursor: pointer;
+    color: #005e8b;
+}
+
+    span.select_cards:hover {
+        display: inline-block;
+        margin: 5px 0px 5px 0px;
+        text-decoration: underline;
+        cursor: pointer;
+        color: #005e8b;
+    }
+
+span.select_cards_3d {
+    padding-right: 12px;
+}
+
+
+div.correct_margin_arrow {
+}
+
+div.correct_margin_arrow_list {
+}
+
+div.arrow_empty_text {
+    background-image: url(Images/bluearrow_empt.gif);
+    float: right;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 3px;
+    height: 5px;
+    margin-top: 7px;
+    font-size: 0px;
+    padding-left: 0px;
+    margin-left: 4px;
+}
+
+a.clear_button {
+    display: block;
+    background-image: url(Images/2019/buttons/nikui-line-black.png);
+    background-size: 90px;
+    background-repeat: no-repeat;
+    width: 90px;
+    height: 24px;
+}
+
+    a.clear_button:hover {
+        background-image: url(Images/2019/buttons/nikui-line-blue.png);
+    }
+
+.ErrNew {
+    color: Red;
+}
+
+span.error_joining_msg {
+    background-image: url(Images/joining/icon_info_red.gif);
+    background-repeat: no-repeat;
+    padding-right: 20px;
+    background-position: right top;
+    display: block;
+    height: 17px;
+}
+
+img.calmail_small_logo {
+    vertical-align: bottom;
+    padding-bottom: 2px;
+}
+
+.help_button {
+    cursor: pointer;
+}
+
+.ltr {
+    direction: ltr
+}
+
+.clear {
+    clear: both;
+}
+
+table.services_links_right {
+    margin-top: 5px;
+}
+
+div.channels357 div.explanation_text {
+    font-size: 12px;
+    color: #000000;
+    width: 616px;
+    float: right;
+    margin-top: 15px;
+}
+
+div.channels357 div.validation_holder {
+    float: right;
+    width: 100%;
+}
+
+span.informatiom_sentense {
+    display: block;
+    background-image: url(Images/icon_i.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-right: 22px;
+    font-size: 14px;
+}
+
+table.success_info td.center span.ErrorMessagesBox {
+    display: block;
+    font-size: 15px;
+    background-color: #EEF6CB;
+}
+
+td.success_action_message {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+a.print_caption {
+    float: right;
+    padding-left: 12px;
+    width: 43px;
+    color: #000000;
+    padding-top: 1px;
+    text-decoration: none;
+    display: block;
+}
+
+    a.print_caption:hover {
+        text-decoration: underline;
+    }
+
+/* buttons */
+a.printbtn {
+    display: block;
+    width: 22px;
+    background-size: 22px;
+    height: 22px;
+    background-image: url(Images/2019/iconsBlue/printbig.png);
+    background-repeat: no-repeat;
+    padding-right: 7px;
+    float: right;
+    background-position-x: 7px;
+}
+
+    a.printbtn:hover {
+        background-image: url(Images/2019/iconsBlue/printbig.png);
+    }
+
+a.close_btn {
+    display: block;
+    width: 22px;
+    height: 22px;
+    background-image: url(Images/2019/x-black.png);
+    background-repeat: no-repeat;
+    float: right;
+}
+
+a.tech_support_btn {
+    display: block;
+    width: 222px;
+    height: 56px;
+    background-image: url(Images/support_butBig.gif);
+    background-repeat: no-repeat;
+}
+
+    a.tech_support_btn:hover {
+        background-image: url(Images/support_butBig_over.gif);
+    }
+
+a.demonstration_btn {
+    display: block;
+    width: 223px;
+    height: 57px;
+    background-image: url(Images/demo_but.gif);
+    background-repeat: no-repeat;
+}
+
+    a.demonstration_btn:hover {
+        background-image: url(Images/demo_but_over.gif);
+    }
+
+a.tech_support_small_btn {
+    display: block;
+    width: 71px;
+    height: 68px;
+    background-image: url(Images/support_but.gif);
+    background-repeat: no-repeat;
+}
+
+    a.tech_support_small_btn:hover {
+        background-image: url(Images/support_but_over.gif);
+    }
+
+a.data_protection_btn {
+    display: block;
+    width: 71px;
+    height: 68px;
+    background-image: url(Images/securityInfo_but.gif);
+    background-repeat: no-repeat;
+}
+
+    a.data_protection_btn:hover {
+        background-image: url(Images/securityInfo_but_over.gif);
+    }
+
+a.about_service_btn {
+    display: block;
+    width: 71px;
+    height: 68px;
+    background-image: url(Images/aboutService_but.gif);
+    background-repeat: no-repeat;
+}
+
+    a.about_service_btn:hover {
+        background-image: url(Images/aboutService_but_over.gif);
+    }
+
+a.question_mark_button {
+    background-position: center;
+    width: 20px;
+    position: relative;
+    top: 3px;
+    /* padding-top: 5px; */
+    margin: 0 auto;
+    /* margin-top: 3px; */
+    background-size: contain;
+    background-image: url(images/2019/iconsBlue/questionbig.png);
+    cursor: pointer;
+    display: block;
+    height: 20px;
+    background-repeat: no-repeat;
+    /* padding-right: 6px; */
+}
+
+    a.question_mark_button:hover {
+        background-image: url(images/2019/iconsBlue/questionbig.png);
+        background-repeat: no-repeat;
+    }
+
+div.webi_holder {
+    width: 224px;
+    text-align: center;
+    display: none;
+}
+
+td.service_btn {
+    padding-top: 10px;
+    padding-left: 5px;
+}
+
+
+div.dashed_seperator {
+    background-image: url(images/gray_dot.gif);
+    background-repeat: repeat-x;
+    height: 1px;
+    font-size: 1px;
+    overflow: hidden;
+    padding: 0px;
+}
+
+div.seperator_holder {
+    margin-top: 9px;
+    float: right;
+    font-size: 1px;
+    width: 100%;
+}
+
+div.joining_top {
+    padding: 27px 20px 0px 0px;
+}
+
+    div.joining_top div.header_title {
+        font-weight: bold;
+        font-size: 22px;
+        padding-bottom: 13px;
+        color: #1b5ece;
+    }
+
+    div.joining_top div.header_description {
+        font-size: 15px;
+        padding: 0px 0px 15px 0px;
+    }
+
+div.joining357 {
+}
+
+    div.joining357 div.header_holder {
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    div.joining357 div.explanation_text {
+        font-size: 12px;
+        color: #000000;
+        width: 616px;
+        float: right;
+        margin-top: 15px;
+    }
+
+    div.joining357 div.clear {
+        clear: both;
+    }
+
+div.joining {
+    width: 640px;
+}
+
+div.joining_form {
+    margin-top: 20px;
+}
+
+div.joining #tblmessagebox {
+    padding-bottom: 13px;
+}
+
+div.joining div.vld_summary {
+    _height: 1px;
+    _font-size: 1px;
+}
+
+div.joining .combo {
+    width: 209px;
+    _width: 211px;
+}
+
+div.joining select {
+    font-size: 12px;
+    font-family: Arial;
+    height: 22px;
+    color: #000000;
+}
+
+div.joining td.field_desc {
+    font-size: 13px;
+    padding-right: 5px;
+    color: #000000 !important;
+}
+
+div.joining div.explanation_text {
+    font-size: 13px;
+    color: #000000;
+    width: 616px;
+    float: right;
+    padding-top: 2px;
+}
+
+div.joining div.question_mark_holder {
+    float: left;
+    width: 22px;
+}
+
+div.joining td.form_headline, .calMail .form_headline {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 4px;
+}
+
+div.joining td.second_headline {
+    padding-bottom: 17px;
+}
+
+div.joining td.field_caption {
+    font-size: 13px;
+    padding-right: 5px;
+    width: 229px;
+    vertical-align: middle;
+}
+
+    div.joining td.field_caption .caption_holder {
+        padding-bottom: 12px;
+        _padding-bottom: 11px;
+    }
+
+div.joining td.explain_holder {
+    width: 22px;
+    vertical-align: top;
+}
+
+div.joining div.tooltip_holder {
+    margin-top: 3px;
+    _margin-top: 4px;
+    margin-right: 5px;
+}
+
+div.joining td.validators_holder {
+    width: 182px;
+    vertical-align: middle;
+}
+
+div.joining div.error_holder {
+    padding-right: 5px;
+    margin-right: 10px;
+    _padding-right: 4px;
+    padding-bottom: 6px;
+    float: right;
+}
+
+div.joining div.error_holder_no_top {
+    padding-right: 5px;
+    _padding-right: 4px;
+}
+
+div.joining table.form_table {
+    width: 635px;
+    float: right;
+    margin-top: 20px;
+    _margin-top: 19px;
+    margin-bottom: 10px;
+}
+
+div.joining td.form_textbox_td {
+    padding-bottom: 8px;
+    color: #000000;
+    margin: 0px;
+    font-size: 0px;
+}
+
+div.joining td.textbox_fix_input input {
+    float: right;
+}
+
+div.joining td.form_textbox_nospace {
+    width: 207px;
+    padding-bottom: 2px;
+}
+
+div.joining input.form_textbox_width {
+    width: 211px;
+}
+
+div.joining input.textbox_month {
+    width: 63px;
+}
+
+div.joining input.txtbox_year {
+    width: 62px;
+    padding: 0px;
+}
+
+div.joining table.validtion_padding {
+    margin-bottom: 18px;
+}
+
+div.joining td.form_section_seperator {
+    padding-top: 4px;
+    _padding-top: 3px;
+    padding-bottom: 15px;
+    _padding-bottom: 14px;
+}
+
+div.joining div.headline_printbtn_holder {
+    padding-bottom: 12px;
+    height: 20px;
+    width: 623px;
+    padding-right: 2px;
+}
+
+div.joining span.form_headline_description {
+    font-weight: normal;
+    font-size: 12px;
+}
+
+div.joining td.form_space_after_chkbox {
+    padding-top: 11px;
+    _padding-top: 10px;
+}
+
+div.joining div.captionOfTextBox {
+    width: 450px;
+    float: right;
+}
+
+    div.joining div.captionOfTextBox span {
+        font-size: 13px;
+        color: #000000;
+    }
+
+div.joining td.calmail_chk_holder {
+    padding-right: 0px;
+}
+
+div.joining span.chkbox_join {
+    display: block;
+    float: right;
+    width: 20px;
+    height: 19px;
+    vertical-align: bottom;
+}
+
+    div.joining span.chkbox_join input {
+        height: 13px;
+        width: 13px;
+        margin-right: 0px;
+        padding-right: 0px;
+        margin-left: 1px;
+    }
+
+div.joining div.calmail_id_row {
+    height: 32px !important;
+    padding-bottom: 0px !important;
+    margin-top: 22px;
+    display: none;
+}
+
+div.joining td.space_before_indecation {
+    height: 22px;
+}
+
+div.joining div.explination_under_txbox {
+    padding-right: 6px;
+    padding-bottom: 10px;
+    _padding-bottom: 9px;
+}
+
+div.joining input.textbox_next_combo {
+    padding-top: 2px;
+}
+
+div.joining td.space_agreement {
+    height: 6px;
+}
+
+div.joining div.agreement {
+    height: 114px;
+    width: 624px;
+    overflow-y: scroll;
+    color: #000000;
+    font-size: 13px;
+    font-family: Arial;
+    background-color: #ffffff;
+    padding-right: 0px;
+}
+
+div.joining td.agreement_center {
+    padding-right: 11px !important;
+    padding-top: 15px;
+    padding-left: 3px;
+    padding-bottom: 15px;
+    border-radius: 8px;
+}
+
+div.joining div.terms_section {
+    width: 100%;
+}
+
+div.joining h5.terms_headline {
+    font-size: 17px;
+    margin: 0px;
+    display: block;
+    width: 250px;
+    float: right;
+    font-family: Arial;
+    color: #000000;
+}
+
+div.joining div.print_button_holder {
+    float: left;
+    width: 65px;
+}
+
+div.joining div.printbtn_holder {
+    float: right;
+    _padding-left: 1px;
+    height: 22px;
+}
+
+div.joining div.condition_error {
+    margin-top: 5px;
+    width: 20px;
+    float: right;
+    margin-right: 5px;
+    _margin-top: 0px;
+}
+
+div.joining span.accept_cond {
+    display: block;
+    float: right;
+}
+
+    div.joining span.accept_cond input {
+        margin-right: 0px;
+        padding-right: 0px;
+        width: 13px;
+    }
+
+div.joining .confirm_section {
+    padding-top: 7px;
+    _padding-top: 6px;
+    width: 610px;
+}
+
+    div.joining .confirm_section .legal_note {
+        display: block;
+        float: right;
+        width: 557px;
+        margin-right: 5px;
+        color: #000000;
+        font-size: 13px;
+    }
+
+div.joining td.space_agreement_seperator {
+    height: 16px;
+}
+
+div.joining td.space_seperator_buttons {
+    height: 12px;
+}
+
+div.joining input.continue_button {
+    display: block;
+    float: left;
+    _margin-right: 3px;
+}
+
+div.joining input.back_button {
+    margin-right: 7px;
+    margin-left: 3px;
+}
+
+div.joining input.text_box_form {
+    width: 211px;
+}
+
+div.joining span.error_user_name {
+    font-weight: bold;
+    color: Red;
+    font-size: 12px;
+}
+
+div.joining span.choose_user {
+    font-weight: bold;
+    font-size: 12px;
+}
+
+div.joining span.alt_user {
+    font-size: 12px;
+}
+
+div.joining td.captcha_holder {
+    padding-top: 16px;
+    padding-bottom: 16px;
+    text-align: center;
+}
+
+div.joining div.captcha_container {
+    margin: 0 auto;
+}
+
+div.joining div.captcha_seperator {
+    float: right;
+    margin-top: 16px;
+}
+
+div.joining div.captcha_caption_holder {
+    float: right;
+    height: 75px;
+    width: 225px;
+}
+
+div.joining div.captcha_img_holder {
+    float: right;
+    height: 76px;
+    width: 260px;
+}
+
+div.joining .txtbox_captcha {
+    display: block;
+    width: 210px;
+    float: right;
+}
+
+div.joining img.img_captcha {
+    display: block;
+    float: left;
+    width: 208px;
+}
+
+div.joining div.captcha_image {
+    margin-top: 2px;
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+div.joining div.tooltip_holder {
+    width: 16px;
+    float: right;
+}
+
+div.joining div.error_holder_restore {
+    width: 15px;
+    float: right;
+    padding-top: 5px;
+    padding-right: 3px;
+}
+
+div.joining div.field_and_tool {
+    height: 32px;
+}
+
+div.joining input.joining_firststep_nextbutton {
+    margin-top: 6px;
+    margin-bottom: 119px;
+}
+
+div.joining input.joining_secondstep_nextbutton {
+    padding-top: 13px;
+    padding-bottom: 14px;
+}
+
+div.joining div.joining_wizardsteps td.wizard_laststep {
+    width: 116px;
+}
+
+div.joining div.joining_wizardsteps td.step_1 {
+    width: 126px;
+}
+
+div.joining div.joining_wizardsteps td.step_2 {
+    width: 116px;
+}
+
+div.joining div.joining_wizardsteps {
+    margin-bottom: 8px;
+    float: right;
+    margin-top: 13px;
+    width: 100%;
+}
+
+div.joining div.form_cardyear {
+    float: right;
+    width: 40px;
+}
+
+div.joining span.form_monthcaption {
+    display: block;
+    float: right;
+    font-size: 13px;
+    margin-left: 4px;
+}
+
+div.joining td.form_yearcaption {
+    width: 33px;
+}
+
+div.joining div.form_header {
+    display: block;
+    float: right;
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 7px;
+    width: 600px;
+    margin-top: 17px;
+    margin-bottom: 11px;
+}
+
+div.joining div.form_seperator {
+    margin-top: 8px;
+}
+
+div.joining span.registration_fieldcaption {
+    display: block;
+    float: right;
+    font-size: 13px;
+    width: 159px;
+}
+
+div.joining span.registration_3d_username {
+    display: block;
+    float: right;
+    font-size: 13px;
+    width: 114px;
+}
+
+div.joining span.registration_3d_username_value {
+    float: right;
+    width: 100px;
+    text-align: left;
+    padding-left: 30px;
+}
+
+div.joining span.registration_step1_fieldcaption {
+    display: block;
+    float: right;
+    line-height: 22px;
+    font-size: 15px;
+    width: 165px;
+    height: 20px;
+}
+
+
+div.joining .two-line-form-row span.registration_step1_fieldcaption {
+    line-height: 14px;
+}
+
+div.joining span.registration_fieldvalue {
+    float: right;
+    width: 109px;
+    text-align: left;
+    padding-left: 30px;
+}
+
+div.joining div.toggle_passwordlink {
+    float: right;
+    display: block;
+    height: 18px;
+    width: 120px;
+}
+
+div.joining div.registration_fieldinput {
+    display: block;
+    float: right;
+}
+
+div.joining div.card_exp_year_holder {
+    _width: 101px;
+}
+
+div.joining td.card_exp_month_holder {
+    width: 41px;
+    padding-right: 6px;
+}
+
+div.joining img.validator_image {
+    margin-top: 8px;
+}
+
+div.joining div.form_row {
+    width: 100%;
+    float: right;
+    padding-bottom: 12px;
+    padding-top: 9px;
+    height: 22px;
+}
+
+div.joining div.form_row_captcha {
+    margin-top:13px;
+    width: 100%;
+    float: right;
+    padding-bottom: 6px;
+}
+
+div.joining div.form_row_alt_usernames {
+    min-height: 80px;
+    width: 100%;
+    float: right;
+    padding-bottom: 6px;
+    _height: 80px;
+}
+
+div.joining table.success_info {
+    margin-top: 9px;
+}
+
+    div.joining table.success_info td.center {
+        width: 630px;
+    }
+
+div.joining div.joining_success_upper {
+    padding-right: 12px;
+    float: right;
+}
+
+div.joining div.success_row {
+    margin-top: 19px;
+    display: block;
+    float: right;
+    width: 600px;
+}
+
+    div.joining div.success_row span.field_caption {
+        font-weight: bold;
+        display: block;
+        float: right;
+        width: 90px;
+    }
+
+    div.joining div.success_row span.field_value {
+        display: block;
+        float: right;
+    }
+
+div.joining div.success_cardslist_row {
+    margin-top: 19px;
+    display: block;
+    float: right;
+    width: 630px;
+}
+
+div.joining span.success_caption {
+    display: block;
+    float: right;
+    font-size: 13px;
+    margin-left: 9px;
+}
+
+div.joining span.cal_mail_succeded_msg {
+    display: block;
+    float: right;
+    padding-top: 15px;
+    width: 100%;
+}
+
+div.joining div.row_3d_user_name {
+    padding-top: 20px;
+}
+
+div.joining div.calmail_id_row {
+    height: 40px;
+}
+
+div.joining div.dashed_sep_wrapper {
+    width: 642px;
+}
+
+div.joining div.calmail_service_agreement_holder {
+    display: none;
+}
+
+div.joining div.toggle_cardslist {
+    display: block;
+    float: right;
+    width: 120px;
+}
+
+div.joining img.arrow_bullet {
+    display: block;
+    float: right;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+div.joining div.success_login_button {
+    display: block;
+    float: left;
+    margin-top: 12px;
+    margin-left: 10px;
+    margin-bottom: 14px;
+}
+
+div.joining a.btn_to_login {
+    background-image: url(Images/2019/buttons/entrance_hover.png);
+    width: 115px;
+    height: 25px;
+    background-repeat: no-repeat;
+    display: block;
+}
+
+    div.joining a.btn_to_login:hover {
+        background-image: url(Images/btn_knisa_le_manuim_over.gif);
+    }
+
+div.joining div.next_button {
+    float: left;
+}
+
+div.joining div.second_step_button {
+    padding-top: 6px;
+}
+
+div.joining span.space_from_cards {
+    margin-top: 17px;
+    float: right;
+    width: 570px;
+}
+
+div.joining div.joining_password {
+    width: 550px;
+}
+
+div.joining div.identifacation_desc {
+    float: right;
+    width: 214px;
+    margin-top: -9px;
+    padding-right: 10px;
+}
+
+div.joining div.err_mail_identifacation {
+    height: 14px;
+}
+
+div.joining h3.calmail_joining_service_headline {
+    padding-right: 20px;
+}
+
+div.head_seperator {
+    float: right;
+    width: 100%;
+}
+
+div.joining_more_services span.arrow_link {
+    color: #1b5ece;
+    text-decoration: none;
+    margin-right: 0px;
+}
+
+div.joining_more_services img.img_down_arrow {
+    padding-bottom: 2px;
+}
+
+div.joining_more_services {
+    padding-top: 10px;
+    padding-right: 6px;
+}
+
+    div.joining_more_services div.special_service_holder {
+        min-height: 79px;
+        width: 645px;
+        _height: 79px;
+    }
+
+    div.joining_more_services div.special_service {
+        width: 641px;
+        height: 79px;
+        margin-top: 15px;
+        padding-right: 4px;
+    }
+
+    div.joining_more_services div.special_service_channels {
+        width: 641px;
+        height: 79px;
+        margin-top: 15px;
+        padding-right: 4px;
+        padding-bottom: 14px;
+    }
+
+    div.joining_more_services div.icon_holder {
+        float: right;
+        width: 35px;
+        height: 40px;
+    }
+
+    div.joining_more_services span.service_name {
+        color: #4DA9DB;
+        font-size: 16px;
+        font-weight: bold;
+        display: block;
+        float: right;
+        margin-right: 11px;
+        margin-top: 5px;
+    }
+
+    div.joining_more_services p.service_text {
+        width: 585px;
+        margin-top: 4px;
+        margin-bottom: 0px;
+        float: right;
+        margin-right: 11px;
+    }
+
+    div.joining_more_services div.icon_3dsecure {
+        background-image: url(Images/joining/icon_3d.gif);
+    }
+
+    div.joining_more_services div.icon_357 {
+        background: transparent url(Images/joining/icon_357.gif);
+    }
+
+    div.joining_more_services div.icon_calsms {
+        background: transparent url(Images/joining/icon_sms.gif);
+    }
+
+    div.joining_more_services div.icon_3dsecure_over {
+        background-image: url(Images/joining/icon_3d_over.gif);
+    }
+
+    div.joining_more_services div.icon_357_over {
+        background: transparent url(Images/joining/icon_357_over.gif);
+    }
+
+    div.joining_more_services div.icon_calsms_over {
+        background: transparent url(Images/joining/icon_sms_over.gif);
+    }
+
+    div.joining_more_services div.header_caption {
+        padding-bottom: 9px;
+    }
+
+    div.joining_more_services span.main_caption {
+        font-size: 17px;
+        font-weight: bold;
+    }
+
+    div.joining_more_services div.special_service_hover {
+        display: none;
+        height: 118px;
+        width: 100%;
+        background-repeat: repeat-x;
+        background-image: url(Images/joining/gradbox_pixel.gif);
+        margin-bottom: 22px;
+        margin-top: 16px;
+    }
+
+    div.joining_more_services div.right_round {
+        float: right;
+        height: 100%;
+        width: 45px;
+        background: transparent url(Images/joining/gradbox_right.gif);
+    }
+
+    div.joining_more_services div.left_round {
+        float: left;
+        height: 100%;
+        width: 20px;
+        background: transparent url(Images/joining/gradbox_left.gif);
+    }
+
+    div.joining_more_services div.header_holder {
+        height: 45px;
+    }
+
+    div.joining_more_services div.icon_holder_hovered {
+        width: 35px;
+        height: 40px;
+        margin-top: 7px;
+        margin-right: 5px;
+    }
+
+    div.joining_more_services span.service_name_hovered {
+        color: #005288;
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 3px;
+        display: block;
+        float: right;
+        margin-top: 12px;
+    }
+
+    div.joining_more_services span.service_name_desc {
+        font-size: 13px;
+        color: #000000;
+        font-weight: normal;
+    }
+
+    div.joining_more_services div.service_content {
+        width: 575px;
+        float: right;
+    }
+
+    div.joining_more_services div.bottom_content {
+        width: 622px;
+        float: left;
+    }
+
+    div.joining_more_services div.bottom_content_channels p {
+        margin: 0px 0px 3px 0px;
+    }
+
+    div.joining_more_services div.bottom_content_title {
+        text-align: right;
+        width: 72px;
+        float: right;
+    }
+
+    div.joining_more_services div.content_title_channels {
+        text-align: right;
+        width: 120px;
+        float: right;
+    }
+
+    div.joining_more_services div.points {
+        float: right;
+        width: 378px;
+        height: 68px;
+    }
+
+    div.joining_more_services div.points_channels {
+        float: right;
+        width: 328px;
+        height: 40px;
+    }
+
+    div.joining_more_services span.service_point {
+        margin-right: 6px;
+        float: right;
+        display: block;
+        font-size: 13px;
+    }
+
+    div.joining_more_services div.point_holder {
+        width: 175px;
+        height: 19px;
+        padding-bottom: 3px;
+        float: right;
+        font-size: 12px;
+    }
+
+    div.joining_more_services div.point_holder_channels {
+        width: 110px;
+        height: 19px;
+        float: right;
+        font-size: 12px;
+    }
+
+    div.joining_more_services a.btn_join_now {
+        width: 115px;
+        height: 25px;
+        background-repeat: no-repeat;
+        margin-top: 10px;
+        display: block;
+        background-image: url(Images/2019/buttons/lehitztarfut_fill_black.png);
+    }
+
+        div.joining_more_services a.btn_join_now:hover {
+            background-image: url(Images/joining/join_now_over.gif);
+        }
+
+    div.joining_more_services div.join_btn_holder {
+        width: 115px;
+        float: left;
+        margin-top: 30px;
+    }
+
+    div.joining_more_services div.join_btn_holder_channels {
+        width: 115px;
+        float: left;
+        margin-top: 5px;
+    }
+
+div.joining div.cards_list {
+    float: right;
+    margin-top: 7px;
+    display: none;
+    width: 640px;
+}
+
+div.joining div.card_holder {
+    min-width: 260px;
+    _width: 260px;
+}
+
+div.joining_more_services div.long_point {
+    float: right;
+    width: 372px;
+    margin-right: 5px;
+    padding: 0px;
+    height: 16px;
+}
+
+div.form_tooltip_root {
+    position: relative;
+    z-index: 999;
+    width: 16px;
+    height: 16px;
+}
+
+div.form_tooltip_holder {
+    position: absolute;
+    left: -155px;
+    top: -60px;
+    width: 200px;
+    z-index: 1000;
+}
+
+div.form_tooltip_tail {
+    background-image: url(Images/form_tooltip_tail.gif);
+    width: 10px;
+    height: 7px;
+    background-repeat: no-repeat;
+    float: right;
+    margin-right: 12px;
+    _margin-right: 6px;
+}
+
+div.form_tooltip_top {
+    width: 200px;
+    background-image: url(Images/form_tooltip_top.gif);
+    height: 12px;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    overflow: hidden;
+}
+
+div.form_tooltip_middle {
+    width: 200px;
+    background-image: url(Images/form_tooltip_middle.gif);
+    background-repeat: repeat-y;
+    text-align: right;
+}
+
+div.form_tooltip_bottom {
+    width: 200px;
+    background-image: url(Images/form_tooltip_bottom.gif);
+    height: 19px;
+    background-repeat: no-repeat;
+    margin: 0px;
+    padding: 0px;
+    font-size: 0px;
+}
+
+div.form_tooltip_content {
+    padding: 0px 8px 0px 8px;
+}
+
+
+table.calMail select {
+    font-size: 12px;
+    font-family: Arial;
+    height: 22px;
+    color: #000000;
+}
+
+div.form_headline {
+    font-size: 16px;
+    font-weight: bold;
+    padding-bottom: 10px
+}
+
+div.calMail table.form_table {
+    float: right;
+    margin-top: 10px;
+    width: 100%;
+}
+
+div.calMail table.terms_table {
+    margin-top: 17px;
+}
+
+table.calMail td.field_caption {
+    font-size: 13px;
+    padding-right: 5px;
+    width: 171px;
+    vertical-align: middle !important;
+}
+
+    table.calMail td.field_caption div.caption_holder {
+        margin-bottom: 10px;
+        font-size: 15px;
+        margin-top: 1px;
+    }
+
+table.calMail td.form_textbox_td {
+    color: #000000;
+    padding-bottom: 8px;
+    width: 168px;
+}
+
+table.calMail td.explain_holder {
+    padding-bottom: 5px;
+    vertical-align: top;
+    width: 22px;
+}
+
+table.calMail td.validators_holder {
+    width: 20px;
+    padding: 0px;
+    vertical-align: top;
+}
+
+table.calMail div.error_arrow_holder {
+    height: 15px;
+    padding-right: 5px;
+    width: 15px;
+    float: right;
+    padding-top: 5px;
+}
+
+    table.calMail div.error_arrow_holder span {
+        display: block;
+        float: right;
+    }
+
+table.calMail td.extra_text {
+    width: 510px;
+    color: #838383;
+}
+
+table.calMail div.combo_next_textbox {
+}
+
+table.calMail div.headline_printbtn_holder {
+    padding-bottom: 12px;
+    height: 20px;
+    width: 98%;
+}
+
+table.calMail div.print_button_holder {
+    float: left;
+    width: 65px;
+    height: 18px;
+}
+
+
+table.calMail div.legal_note {
+    color: #000000;
+    display: block;
+    float: right;
+    font-size: 13px;
+    margin-right: 5px;
+    width: 570px;
+}
+
+table.calMail div.confirm_section {
+    padding-top: 7px;
+}
+
+table.calMail span.accept_cond {
+    display: block;
+    float: right;
+}
+
+    table.calMail span.accept_cond input {
+        margin-right: 0px;
+        _width: 13px;
+    }
+
+table.calMail div.service_terms_none_print span {
+    color: #000000 !important;
+}
+
+table.calMail div.service_terms_none_print li {
+    color: #000000 !important;
+}
+
+table.calMail div.service_terms_none_print div.sub_header {
+    color: #000000 !important;
+}
+
+table.calMail td.seperator_space_terms {
+    height: 26px;
+    vertical-align: top;
+}
+
+table.calMail td.seperator_space_button {
+    height: 30px;
+    vertical-align: middle !important;
+}
+
+table.calMail div.btn_next_holder {
+    width: 75px;
+    float: left;
+    margin-top: 140px;
+}
+
+table.calMail div.cancel_calmail_holder {
+    padding-top: 7px;
+}
+
+table.calMail div.condition_error {
+    padding-top: 5px;
+    float: right;
+    _padding-top: 1px;
+}
+
+table.calMail td.explain_holder div.tooltip_holder {
+    margin-top: 4px;
+    margin-right: 5px;
+}
+
+table.calMail td.explain_holder {
+    width: 22px;
+    padding-bottom: 5px;
+    vertical-align: top;
+}
+
+table.calMail td.validation_holder {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+table.calMail div.validation_holder {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    _height: 17px;
+    min-height: 17px;
+}
+
+table.calMail div.question_mark_holder {
+    padding-top: 4px;
+}
+
+table.calMail div.calmail_channels {
+    width: 100%;
+    padding-bottom: 20px;
+}
+
+table.calMail div.agreement {
+    color: #000000;
+    font-family: 'Ploni',Arial;
+    font-size: 13px;
+    height: 114px;
+    overflow-y: scroll;
+    background-color: #ffffff;
+    width: 620px;
+}
+
+table.calMail div.terms_section {
+    float: right;
+    width: 632px;
+}
+
+table.calMail div.terms_headline {
+    font-size: 14px;
+    margin: 0px;
+    float: right;
+    font-weight: bold;
+    font-family: Arial;
+    color: #000000;
+    height: 20px;
+    width: 200px;
+}
+
+table.calMail td.section_title {
+    font-size: 15px;
+    font-weight: bold;
+    padding-bottom: 15px;
+}
+
+table.calmail_succeed {
+    width: 100%;
+    margin-top: 20px;
+    margin-right: 10px;
+}
+
+    table.calmail_succeed td.field_caption {
+        font-weight: bold;
+        font-size: 12px;
+        width: 90px;
+    }
+
+span.calposting_page_description {
+    font-size: 14px;
+}
+
+div.main_description {
+    padding: 10px 15px 0px 0px;
+}
+
+table.joining_conf {
+    padding-right: 13px;
+    margin-top: 18px;
+    width: 627px;
+}
+
+    table.joining_conf td.field_caption {
+        font-weight: bold;
+        width: 88px;
+        padding-bottom: 14px;
+    }
+
+    table.joining_conf td.field_value {
+        width: 552px;
+    }
+
+    table.joining_conf td.space_credit_card_list {
+        height: 23px;
+    }
+
+    table.joining_conf td.calMail_msg {
+        padding-bottom: 0px;
+    }
+
+div.joining_conf {
+    width: 100%;
+    padding-top: 13px;
+}
+
+    div.joining_conf input.login_btn {
+        display: block;
+        float: left;
+    }
+
+table.joining_conf_left {
+    margin-top: 12px;
+    text-align: right;
+    margin-right: 7px;
+}
+
+    table.joining_conf_left td.arrow_holder {
+        width: 8px;
+        padding: 0px;
+    }
+
+    table.joining_conf_left div.arrow {
+        margin-top: 6px;
+        font-size: 0px;
+    }
+
+    table.joining_conf_left td.space {
+        padding-bottom: 16px;
+        padding-right: 0px;
+        padding-left: 5px;
+    }
+
+    table.joining_conf_left a.link {
+        color: #005F8D;
+        text-decoration: underline;
+    }
+
+        table.joining_conf_left a.link:hover {
+            text-decoration: none;
+        }
+
+table.joining_confirm table.transactions_grid {
+    width: 100%;
+}
+
+table.joining_confirm {
+    width: 100%;
+}
+
+table.red_info td.center div.icon {
+    background-image: url('Images/2019/x.png');
+    background-repeat: no-repeat;
+    width: 30px;
+    text-align: right;
+    float: right;
+    height: 50px;
+}
+
+
+div.calMail_details_gray {
+    margin-right: 18px;
+    margin-top: 25px;
+    font-size: 14px;
+}
+
+    div.calMail_details_gray img.green_bullet {
+        margin-left: 3px;
+        margin-bottom: 2px;
+        width: 5px;
+        height: 5px;
+        /* padding-top: 4px; */
+        /* line-height: 4px; */
+    }
+
+    div.calMail_details_gray div.arrow_link_holder {
+    }
+
+    div.calMail_details_gray table.popups_links_holder {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    div.calMail_details_gray span.actions_title {
+        display: block;
+        margin-bottom: 5px;
+        width: 150px;
+    }
+
+    div.calMail_details_gray td.tms_message_holder {
+        text-align: left;
+    }
+
+    div.calMail_details_gray td.holder_tbl_of_popups {
+        width: 216px;
+    }
+
+    div.calMail_details_gray div.option {
+        width: 250px;
+    }
+
+/* 357 */
+div.btn357SuccessNext {
+    float: left;
+    width: 100px;
+    height: 400px;
+}
+
+    div.btn357SuccessNext input {
+        margin-top: 336px;
+    }
+
+div.channels_def_help_button_holder {
+    width: 36px;
+    float: left;
+}
+
+div.space_before_white {
+    height: 15px;
+}
+
+span.channels_def_sub_title {
+    display: block;
+    font-weight: normal;
+}
+
+span.channels_def_info_msg {
+    font-size: 13px;
+    color: #000000;
+}
+
+    span.channels_def_info_msg a {
+        font-size: 13px;
+        color: #428B91;
+        text-decoration: none;
+    }
+
+        span.channels_def_info_msg a:hover {
+            text-decoration: underline;
+        }
+
+table.channel_def {
+    margin-top: 21px;
+    width: 639px;
+}
+
+    table.channel_def img.channel_icon {
+        display: block;
+        float: right;
+    }
+
+    table.channel_def span.channel_desc {
+        font-size: 16px;
+        font-weight: bold;
+        color: #005288;
+        display: block;
+        float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    table.channel_def td.holder_service_registered {
+        width: 104px;
+    }
+
+    table.channel_def span.service_registered {
+        font-size: 13px;
+        font-weight: bold;
+        color: #000000;
+        display: block;
+        width: 100%;
+        padding-right: 2px;
+        padding-top: 2px;
+    }
+
+div.channel_def_dashed_seperator {
+    padding-top: 19px;
+}
+
+table.channel_def td.holder_combo_service_level {
+    width: 185px;
+}
+
+table.channel_def td.holder_tooltip {
+    display: block;
+    width: 20px;
+    vertical-align: top;
+    padding-right: 5px;
+    padding-top: 2px;
+}
+
+table.channel_def td.holder_icon_and_desc {
+    padding-bottom: 9px;
+}
+
+table.channel_def span.channel_updated {
+    padding-right: 10px;
+    display: block;
+    padding-top: 2px;
+}
+/*table.channel_def .calonline_combo .ajax__combobox_inputcontainer td.ajax__combobox_textboxcontainer {vertical-align:top!important;}*/
+table.channel_def td.ajax__combobox_textboxcontainer input {
+    padding-top: 0px !important;
+    margin-bottom: 1px !important;
+}
+
+table.channel_def div.channel_message_container {
+    padding: 5px 0 0 0;
+}
+
+div.channel_message_container span.channel_message {
+    font-weight: bold;
+    color: Red;
+    font-size: 12px;
+}
+
+div.channel_def_EditBtn {
+    width: 75px;
+    float: left;
+}
+
+div.channel_def_finish_error_holder {
+    padding-top: 4px;
+}
+
+div.channel_def_bottom {
+    width: 100%;
+    float: right;
+    padding-top: 10px;
+    display: block;
+}
+
+    div.channel_def_bottom div.check_box_holder {
+        text-align: right;
+        float: right;
+        width: 100%;
+        padding-top: 3px;
+    }
+
+        div.channel_def_bottom div.check_box_holder input {
+            display: block;
+            float: right;
+            width: 13px;
+            margin-right: 0px;
+            padding-right: 0px;
+            margin-left: 4px;
+            padding-left: 0px;
+        }
+
+    div.channel_def_bottom span.phone_instructions {
+        display: block;
+        float: right;
+        height: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: bold;
+        width: 500px;
+        text-align: right;
+    }
+
+    div.channel_def_bottom span.field_desc {
+        display: block;
+        float: right;
+        width: 89px;
+        padding-top: 3px;
+    }
+
+div.channel_def table.bottom_form {
+    width: 270px;
+}
+
+div.channel_def_bottom td.field_desc {
+    width: 90px;
+}
+
+div.channel_def_bottom td.field_holder_mobile {
+    padding-bottom: 4px;
+}
+
+div.channel_def_bottom td.field_holder {
+    height: 22px;
+}
+
+div.channel_def_bottom table.mobile_field_table {
+    width: 100%;
+}
+
+div.channel_def_bottom td.mobile_txt_holder {
+    padding: 0px;
+    margin: 0px;
+    float: right;
+    height: 22px !important;
+}
+
+div.channel_def_bottom td.mobile_combo_holder {
+    padding: 0px;
+    margin: 0px;
+    float: left;
+    text-align: left;
+}
+
+div.channel_def_bottom input.field_txt_box {
+    height: 100%;
+}
+
+div.channel_def_bottom div.phone_section {
+    float: right;
+    padding-bottom: 5px;
+    width: 268px;
+}
+
+div.channel_def_bottom div.combo_holder {
+    float: left;
+    width: 62px;
+}
+
+div.channel_def_bottom div.validators_holder {
+    width: 10px;
+    float: right;
+    height: 10px;
+    padding-right: 5px;
+    padding-top: 6px;
+}
+
+div.channel_def_bottom td.validator_holder {
+    width: 10px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+}
+
+
+/* 357 mail */
+table.channel_mail {
+    margin-top: 11px;
+    border-collapse: collapse;
+}
+
+    table.channel_mail td.icon_and_caption {
+        width: 145px;
+    }
+
+    table.channel_mail img.channel_icon {
+        display: block;
+        float: right;
+    }
+
+    table.channel_mail span.channel_desc {
+        font-size: 14px;
+        font-weight: bold;
+        color: #005288;
+        display: block;
+        float: right;
+        margin-top: 10px;
+        margin-right: 10px;
+    }
+
+    table.channel_mail td.holder_service_registered {
+        width: 100px;
+        vertical-align: middle;
+    }
+
+    table.channel_mail span.service_registered {
+        font-size: 12px;
+        font-weight: bold;
+        color: #000000;
+        margin: 0px;
+        padding: 0px;
+        white-space: nowrap;
+    }
+
+    table.channel_mail td.holder_combo_service_level {
+        width: 185px;
+        vertical-align: middle;
+    }
+
+    table.channel_mail td.holder_date {
+        vertical-align: middle;
+        padding-bottom: 3px;
+    }
+
+div.channel_mail_holder_seperator {
+    padding-top: 8px;
+}
+
+table.channel_mail td.holder_tooltip {
+    vertical-align: middle;
+    padding-right: 5px;
+    width: 20px;
+    _padding-top: 4px;
+}
+
+table.channel_mail td.holder_validator {
+    vertical-align: middle;
+    width: 20px;
+}
+
+div.not_wanted_ok_btn {
+    float: left;
+    margin-top: 13px;
+    margin-bottom: 20px;
+}
+
+div.not_wanted_error {
+    color: Red;
+    font-size: 12px;
+    padding-top: 10px;
+}
+
+div.categoryParent input.txtBoxCollapse {
+    height: 19px;
+    border: 0px;
+    padding-right: 5px;
+    color: #000000;
+    padding-top: 3px;
+    cursor: default;
+    padding-left: 0px;
+    display: block;
+}
+
+span.header_for_page {
+    font-size: 18px;
+    color: #000000;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 16px;
+}
+
+div.inner_top div.page_title span.header_padding {
+    padding: 13px 15px 0px 0px
+}
+
+div.card_acc_selection_holder {
+}
+
+table.card_acc_selection {
+    width: 399px;
+}
+
+    table.card_acc_selection span.FieldCaption {
+        color: #000000;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    table.card_acc_selection td.FieldCaption_holder {
+        padding-bottom: 13px;
+    }
+
+    table.card_acc_selection td.filter_type {
+        width: 176px;
+        vertical-align: middle;
+        color: #000000;
+        font-size: 13px;
+    }
+
+    table.card_acc_selection span.radio_button {
+        font-size: 14px;
+    }
+
+        table.card_acc_selection span.radio_button input {
+            display: block;
+            float: right;
+            margin-left: 6px;
+            margin-right: 0px;
+            width: 12px;
+        }
+
+    table.card_acc_selection .radio_button label {
+        display: block;
+    }
+
+    table.card_acc_selection div.help_btn_holder {
+        float: left;
+        width: 22px;
+    }
+
+    table.card_acc_selection td.filter_taz_holder {
+        padding-top: 12px;
+        color: #000000;
+        font-size: 13px;
+    }
+
+div.calmail_details_holder {
+    min-height: 355px;
+    _height: 355px;
+    position: inherit;
+}
+
+table.detailing_calmail {
+}
+
+    table.detailing_calmail table.date_range {
+        margin-top: 13px;
+    }
+
+    table.detailing_calmail td.filter_from_valid_holder {
+        padding-left: 23px;
+    }
+
+    table.detailing_calmail td.vertical_center {
+        padding-top: 2px;
+        color: #000000;
+        font-size: 13px;
+        font-family: 'Ploni',Arial;
+    }
+
+    table.detailing_calmail .btn_show {
+        display: block;
+        float: left;
+    }
+
+    table.detailing_calmail td.period_caption_from {
+        padding-left: 4px;
+        width: 94px;
+        font-size: 14px;
+    }
+
+    table.detailing_calmail td.period_caption_to {
+        padding-left: 8px;
+        font-size: 14px;
+    }
+
+    table.detailing_calmail td.btn_show_holder {
+        width: 97px;
+        text-align: left;
+    }
+
+    table.detailing_calmail div.cal_mail_combo_date UL {
+        height: 175px !important;
+        overflow-y: auto !important;
+        position: fixed !important;
+    }
+
+div.detailing_mail_DivBackMonth {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+div.detailing_mail_put_back_button {
+    text-align: left;
+    cursor: pointer;
+    display: block;
+    padding-left: 17px;
+    vertical-align: top;
+}
+
+div.detailing_mail_grid_acrobat {
+    padding-top: 8px;
+    padding-right: 9px;
+}
+
+    div.detailing_mail_grid_acrobat img.acrobat_icon {
+        padding-left: 7px;
+    }
+
+    div.detailing_mail_grid_acrobat a.acrobat_link {
+        text-decoration: none;
+        color: #1b5ece;
+    }
+
+        div.detailing_mail_grid_acrobat a.acrobat_link:hover {
+            text-decoration: underline;
+        }
+
+div.detailing_mail_search_button {
+    float: left;
+    width: 162px;
+    text-align: left;
+}
+
+
+div.detailing_mail_error_holder span.ErrorMessagesBox {
+    width: 373px;
+}
+
+span.detailing_mail_message {
+    color: #000000;
+    display: block;
+    padding-bottom: 13px;
+    font-size: 14px;
+    font-family: 'Ploni',Arial;
+}
+
+table.calmail_details div.holder_right_content {
+    padding-left: 13px;
+    width: 450px;
+}
+
+table.calmail_details_tms_holder {
+    _height: 75px;
+}
+
+table.calmail_attachments {
+}
+
+    table.calmail_attachments td.title {
+        height: 26px;
+        background-color: #D9D5D2;
+        vertical-align: middle;
+    }
+
+    table.calmail_attachments div.title_caption {
+        color: #000000;
+        font-size: 15px;
+        padding-right: 10px;
+        font-weight: bold;
+    }
+
+    table.calmail_attachments a.CalOnlineBannerText {
+        text-decoration: none;
+        color: #000000;
+        display: block;
+        padding-right: 5px;
+    }
+
+        table.calmail_attachments a.CalOnlineBannerText:hover {
+            text-decoration: underline;
+        }
+
+    table.calmail_attachments td.space_from_title {
+        height: 6px;
+    }
+
+    table.calmail_attachments td.calMailLineSeperatopr {
+        height: 18px;
+    }
+
+table.calmail_details span.how_to_open {
+    display: block;
+    width: 260px;
+
+    margin-bottom: 4px;
+}
+
+table.calmail_attachments_right {
+}
+
+    table.calmail_attachments_right td.title {
+        height: 26px;
+        background-color: #F3F0EB;
+        vertical-align: middle;
+    }
+
+    table.calmail_attachments_right div.title_caption {
+        color: #000000;
+        font-size: 13px;
+        padding-right: 10px;
+        font-weight: bold;
+    }
+
+    table.calmail_attachments_right a.CalOnlineBannerText {
+        text-decoration: none;
+        color: #000000;
+        display: block;
+        padding-right: 5px;
+    }
+
+        table.calmail_attachments_right a.CalOnlineBannerText:hover {
+            text-decoration: underline;
+        }
+
+    table.calmail_attachments_right td.space_from_title {
+        height: 6px;
+    }
+
+    table.calmail_attachments_right td.calMailLineSeperatopr {
+        height: 18px;
+    }
+
+    table.calmail_attachments_right td.trAttachPadding {
+        padding-left: 12px;
+    }
+
+table.calMailAttacment td.dashed_seperator_holder {
+    font-size: 1px;
+    padding-bottom: 16px;
+}
+
+table.calmail_details div.space_from_attachments {
+}
+
+div.cal_mail_grid_holder {
+    width: 445px;
+}
+
+table.cal_mail_grid {
+    width: 100%;
+}
+
+    table.cal_mail_grid td.cell {
+        vertical-align: middle;
+    }
+
+    table.cal_mail_grid td.cell_24 {
+        width: 24px;
+    }
+
+    table.cal_mail_grid td.cell_solid {
+        border-collapse: collapse;
+        cursor: pointer;
+        height: 23px;
+        padding: 0px 8px 2px;
+        text-align: right;
+        background-image: none;
+        vertical-align: middle;
+    }
+
+        table.cal_mail_grid td.cell_solid div.nw {
+            font: 12px arial;
+            display: block;
+            margin: 0px 0px 0px 0px;
+            text-align: right;
+            color: #000000;
+        }
+
+table.cal_mail_table {
+    width: 120%;
+}
+
+    table.cal_mail_table th {
+        background-color: #e6eaed;
+    }
+
+    table.cal_mail_table td {
+    }
+
+
+div.detailing_mail_back_month_holder {
+    height: 25px;
+    width: 100%;
+}
+
+    div.detailing_mail_back_month_holder div.back_month_link {
+        float: left;
+        margin-top: 8px;
+        width: 169px;
+        padding-left: 10px;
+    }
+
+div.detailing_mail_grid_explination {
+    width: 138px;
+    _width: 143px;
+    float: left;
+    text-align: left;
+}
+
+div.cal_mail_joining_conf {
+    padding-right: 14px;
+    margin-top: 20px;
+}
+
+    div.cal_mail_joining_conf div.cards_joined_title {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+    div.cal_mail_joining_conf div.cal_mail_join_update_comment1 {
+        color: #005288;
+        margin-top: 15px;
+    }
+
+    div.cal_mail_joining_conf div.cal_mail_join_update_comment2 {
+        color: #4DA9DB;
+        margin: 15px 0;
+    }
+
+    div.cal_mail_joining_conf span.cards_joined {
+        margin-top: 10px;
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    div.cal_mail_joining_conf div.join_partners {
+        font-weight: bold;
+        font-size: 15px;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+
+    div.cal_mail_joining_conf .arrow_before_card {
+        padding-bottom: 2px;
+    }
+
+    div.cal_mail_joining_conf div.card_holder {
+        margin-bottom: 3px;
+    }
+
+div.custom_alert_357 {
+    width: 350px;
+    position: absolute;
+    z-index: 10001;
+    background: white;
+    border: #0f86bf 1px solid;
+    visibility: hidden;
+    overflow: visible;
+    border: 1px solid #0f86bf;
+}
+
+    div.custom_alert_357 div.msg {
+        width: 350px;
+        z-index: -1;
+        display: none;
+    }
+
+        div.custom_alert_357 div.msg span {
+            display: block;
+            float: right;
+            font-size: 14px;
+        }
+
+        div.custom_alert_357 div.msg div {
+            text-align: right;
+        }
+
+            div.custom_alert_357 div.msg div.title {
+                width: 100%;
+                height: 30px;
+                background: #0f86bf;
+            }
+
+                div.custom_alert_357 div.msg div.title span {
+                    float: right;
+                    margin: 5px 5px 0px 0px
+                }
+
+            div.custom_alert_357 div.msg div.buttons {
+                width: 100%;
+                height: 30px;
+                margin: 0px 0px 5px 0px;
+                float: right;
+            }
+
+                div.custom_alert_357 div.msg div.buttons div.right_button {
+                    height: 20px;
+                    float: right;
+                    margin: 5px 5px 0px 0px;
+                    cursor: pointer;
+                }
+
+                div.custom_alert_357 div.msg div.buttons div.left_button {
+                    height: 20px;
+                    float: left;
+                    margin: 5px 0px 0px 5px;
+                    cursor: pointer;
+                }
+
+            div.custom_alert_357 div.msg div.foot_note {
+                height: 30px;
+                float: left;
+                background-image: url('../../App_Themes/Green/Images/ast.gif');
+                background-position: 99% 5px;
+                _background-position: 98% 5px;
+                background-repeat: no-repeat;
+                width: 100%;
+            }
+
+                div.custom_alert_357 div.msg div.foot_note span {
+                    display: block;
+                    font-size: 11px;
+                    margin: 0px 12px 5px 5px;
+                    float: right;
+                }
+
+            div.custom_alert_357 div.msg div.text {
+                width: 100%;
+            }
+
+                div.custom_alert_357 div.msg div.text span {
+                    float: right;
+                    margin: 20px 5px 15px 5px
+                }
+
+table.channel_357_finish {
+    width: 100%;
+}
+
+    table.channel_357_finish span.lbl_finish {
+        font-size: 14px;
+    }
+
+div.not_join_service_levels {
+    padding-top: 15px;
+    margin-right: 4px;
+}
+
+table.active_other_options_links {
+    width: 200px;
+}
+
+table.finplan_outer div.login_links {
+    padding-top: 15px;
+    height: 50px;
+}
+
+table.finplan_outer div.image_link {
+    width: 170px;
+    height: 32px;
+    float: left;
+    cursor: pointer;
+}
+
+table.finplan_outer div.text_link {
+    width: 100px;
+    height: 10px;
+    float: right;
+}
+
+table.finplan_outer span.teezer {
+    font-size: 14px;
+    display: block;
+    font-weight: bold;
+    color: #005288
+}
+
+table.finplan_outer ul.benefits {
+    list-style-position: inside;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+table.finplan_outer span.benefits_title {
+    display: block;
+    height: 16px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+table.finplan_outer img.green_bullet {
+    margin-bottom: 3px;
+    margin-left: 3px;
+}
+
+a.lnk_homepage_details {
+    color: #CC0000;
+}
+
+div.active_payments_hhk_sec {
+    margin-top: 25px;
+    height: 60px;
+    margin-bottom: 10px;
+}
+
+    div.active_payments_hhk_sec div.form_row {
+        float: right;
+        width: 100%;
+    }
+
+    div.active_payments_hhk_sec span.row_caption {
+        display: block;
+        float: right;
+        width: 141px;
+        height: 16px;
+        text-align: left;
+        padding-left: 10px;
+    }
+
+    div.active_payments_hhk_sec div.combo_amount {
+    }
+
+    div.active_payments_hhk_sec div.custom_amount {
+        float: right;
+        margin-right: 10px;
+        display: none;
+    }
+
+    div.active_payments_hhk_sec div.custom_row {
+        margin-top: 10px;
+        visibility: hidden;
+    }
+
+    div.active_payments_hhk_sec div.validator_holder {
+        float: right;
+        width: 15px;
+        padding-right: 5px;
+        padding-top: 5px;
+    }
+
+/*BLL calchoice*/
+#divActivePaymentsHHK div.active-payments-hhk-sec {
+    margin: 25px 25px 10px 0;
+}
+
+    #divActivePaymentsHHK div.active-payments-hhk-sec div.form_row {
+        margin: 5px 0;
+        line-height: 22px;
+        display: block;
+        float: none
+    }
+
+    #divActivePaymentsHHK div.active-payments-hhk-sec span.row_caption {
+        display: inline;
+        float: none;
+        width: auto;
+        height: 16px;
+    }
+
+    #divActivePaymentsHHK div.active-payments-hhk-sec div.validator_holder {
+        width: 15px;
+        padding-right: 5px;
+        padding-top: 5px;
+        display: inline
+    }
+
+    #divActivePaymentsHHK div.active-payments-hhk-sec .spn-money {
+        direction: ltr;
+        display: inline-block;
+    }
+
+#divActivePaymentsHHK .bullets .tbl-comments {
+    width: auto !important;
+}
+
+span.browser_msg {
+    display: block;
+    text-align: center;
+    font-size: 10px;
+    padding-top: 2px;
+}
+
+/* detailingCalMailPopUp in home page */
+div.cal_pop_up {
+    display: none;
+    height: 100%;
+}
+
+    div.cal_pop_up div.popup_header {
+        background-color: #005288;
+        color: #FFFFFF;
+        font-family: 'Ploni',Arial;
+        font-weight: bold;
+        height: 26px;
+        width: 100%;
+        border-right: solid 2px #0083C7;
+    }
+
+    div.cal_pop_up div.popup_content {
+        width: 100%;
+        background-color: #ffffff;
+        direction: rtl;
+        border: 1px solid #9D9D9D;
+    }
+
+    div.cal_pop_up div.popup_inner_content {
+        padding-right: 16px;
+        padding-top: 15px;
+        padding-left: 15px;
+        padding-bottom: 15px;
+    }
+
+    div.cal_pop_up span.header_text {
+        font-size: 18px;
+        font-weight: bold;
+        height: 23px;
+        width: 90%;
+        display: block;
+        padding-right: 15px;
+        padding-top: 1px;
+        text-align: right;
+        float: right;
+    }
+
+    div.cal_pop_up div.exit_btn {
+        background-image: url(../../App_Themes/Default/Images/close_btn.gif);
+        cursor: pointer;
+        float: left;
+        height: 22px;
+        margin-left: 2px;
+        margin-top: 2px;
+        width: 22px;
+    }
+
+div.calmail_pop_up {
+    width: 600px;
+}
+
+    div.calmail_pop_up div.popup_content {
+        min-height: 300px;
+        _height: 300px;
+    }
+
+    div.calmail_pop_up div.desc_and_tms {
+        margin-top: 10px;
+    }
+
+    div.calmail_pop_up span.calmail_popup_msg_desc {
+        display: block;
+        float: right;
+        clear: right;
+    }
+
+    div.calmail_pop_up div.calmail_links {
+        float: right;
+        width: 400px;
+    }
+
+    div.calmail_pop_up div.calmail_link {
+        float: right;
+        margin-left: 15px;
+        display: block;
+        height: 20px;
+        background-image: url(Images/blue_arrow.gif);
+        background-position: right 7px;
+        background-repeat: no-repeat;
+        padding: 0px 5px 0px 0px;
+    }
+
+        div.calmail_pop_up div.calmail_link a {
+            color: #1b5ece !important;
+            font-size: 13px;
+        }
+
+    div.calmail_pop_up div.bottom_seperator {
+        margin-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    div.calmail_pop_up div.detailing_mail_search_button {
+        float: left;
+        width: auto;
+    }
+
+        div.calmail_pop_up div.detailing_mail_search_button a {
+            color: #1b5ece !important;
+            font-size: 13px;
+            float: left;
+        }
+
+        div.calmail_pop_up div.detailing_mail_search_button div.arrow_before_link {
+        }
+
+    div.calmail_pop_up div.calmail_attachments_section { /*display:none;*/
+        width: 100%;
+        margin-top: 15px;
+    }
+
+    div.calmail_pop_up div.attachments_headline {
+        background-color: #ccdce7;
+        height: 26px;
+        color: #000000;
+        font-size: 15px;
+        font-weight: bold;
+        padding-right: 10px;
+    }
+
+    div.calmail_pop_up div.calmail_attachments_holder {
+        width: 100%;
+    }
+
+    div.calmail_pop_up table.calMailAttacment {
+        display: block;
+        float: right;
+        margin-left: 8px;
+    }
+
+    div.calmail_pop_up div.detailing_mail_grid_explination {
+        float: left;
+        text-align: left;
+        width: auto;
+    }
+
+div.active_payments_error {
+    margin-top: 10px;
+}
+
+/* pop up page */
+span.section_title_with_arrow {
+    font-weight: bold;
+    background-image: url(images/LeftArrowBullet.gif);
+    background-repeat: no-repeat;
+    background-position: right;
+    color: #1b5ece;
+    padding-right: 6px;
+}
+
+
+.popup-color-on-bg {
+    color: #1b5ece;
+}

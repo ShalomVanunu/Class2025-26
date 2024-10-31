@@ -1,0 +1,389 @@
+﻿
+/*Cal*/
+#bcsRootDiv {
+    direction: rtl;
+}
+/*Bcs*/
+.powered-by-img {
+    background: url(BingLogoDark.png) no-repeat
+}
+
+.bsc-notification-banner {
+    font-size: 13px;
+    font-family: "Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
+    background: #f2f2f2;
+    min-height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border-bottom: 1px black solid
+}
+
+.bsc-notification-icon {
+    height: 16px;
+    width: 16px;
+    margin: 0 5px
+}
+
+.bsc-host-div {
+    background-color: white;
+    color: #666;
+    font: 13px/normal Arial,Helvetica,Sans-Serif
+}
+
+.cal-container-searchbox {
+    font: 18px/normal 'Segoe UI',Arial,Helvetica,Sans-Serif;
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    background-color: white;
+    height: 45px;
+    padding-top: 5px;
+}
+
+.cal_bcs-searchbox {
+    font: inherit;
+    font-size: 16px;
+    color: #222;
+    background-color: transparent;
+    width: calc(100% - 71px);
+    margin: 4px 4px 0 16px;
+    border: 0;
+    padding: 0 10px 0 0;
+    max-height: 30px;
+    outline: 0;
+    box-sizing: content-box;
+    vertical-align: top;
+    height: 35px
+}
+
+.bsc-searchbox-submit {
+    /*  float: left;
+    font: normal normal normal 16px/1 FontAwesome;
+    font: normal normal normal 16px/1 FontAwesome;
+    color: #005288;
+    content: "\f002";
+    position: absolute;
+	float: left;
+	background-image: url(https://hosteduxprod.blob.core.windows.net/public/BingIcons.png);
+	background-position: -675px -34px;
+	width: 41px;
+	height: 42px;
+	border-width: 10px;
+	border-style: solid;
+	cursor: pointer;
+	background-color: #007daa;
+	border-color: #007daa;
+	color: transparent*/
+}
+
+.searchBox_button {
+    float: left;
+    /* background-image: url(https://hosteduxprod.blob.core.windows.net/public/BingIcons.png);
+    background-position: -675px -34px;*/
+    width: 41px;
+    height: 42px;
+    /*border-width: 10px;
+	border-style: solid;*/
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    /*border-color: #007daa;*/
+    color: transparent;
+}
+
+    .searchBox_button:before {
+        float: left;
+        font: normal normal normal 16px/1 FontAwesome;
+        font: normal normal normal 16px/1 FontAwesome;
+        color: #005288;
+        content: "\f002";
+        /*position: absolute;*/
+        float: left;
+    }
+
+
+
+
+.bsc-altered-query {
+    font-size: 16px;
+    line-height: 1.2em
+}
+
+.bsc-results {
+    margin: 10px 0 0 0;
+    padding: 0 0 20px 0;
+    color: #666;
+    width: 100%;
+    display: inline-block
+}
+
+.bsc-query-rewrite, .bsc-result {
+    margin: 0;
+    padding: 12px 20px;
+    list-style: none
+}
+
+    .bsc-result h2 {
+        margin: 0;
+        padding: 0;
+        font: 13px/1.2em 'Segoe UI',Arial,Helvetica,Sans-Serif;
+        font-size: 20px;
+        line-height: 24px;
+        padding-bottom: 3px
+    }
+
+    .bsc-result cite {
+        color: #006d21;
+        font-style: normal;
+        word-wrap: break-word
+    }
+
+    .bsc-query-rewrite a, .bsc-result a {
+        text-decoration: none;
+        color: #001ba0
+    }
+
+        .bsc-query-rewrite a:visited, .bsc-result a:visited {
+            color: #600090
+        }
+
+        .bsc-query-rewrite a:hover {
+            text-decoration: underline
+        }
+
+    .bsc-result:hover h2 a {
+        text-decoration: underline
+    }
+
+    .bsc-result li:hover h3 a {
+        text-decoration: underline
+    }
+
+.bsc-caption {
+    display: table;
+    line-height: 17px
+}
+
+.bsc-caption-with-image {
+    padding-top: 5px
+}
+
+.bsc-caption-text, .bsc-caption-image {
+    display: table-cell;
+    vertical-align: top;
+    margin-right: 10px
+}
+
+    .bsc-caption-image img {
+        max-width: 128px;
+        max-height: 80px;
+        margin-right: 10px;
+        padding-top: 2px
+    }
+
+.bsc-caption p {
+    margin: 0;
+    padding: 0
+}
+
+.bsc-pagination {
+    list-style: none;
+    margin: 0 0 2px;
+    padding: 18px 0 0 0;
+    background-color: transparent
+}
+
+    .bsc-pagination .bsc-current-page {
+        text-decoration: none;
+        border-color: #ededed
+    }
+
+    .bsc-pagination > ul {
+        margin: 0;
+        padding: 0
+    }
+
+        .bsc-pagination > ul > li {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            float: right !important;
+        }
+
+    .bsc-pagination a {
+        color: red; /* #666;*/
+        border: 3px solid transparent;
+        display: block;
+        min-width: 34px;
+        margin-right: 10px;
+        text-align: center;
+        height: 34px;
+        line-height: 34px
+    }
+
+    .bsc-pagination > ul > li > a:hover {
+        text-decoration: none;
+        background-color: #f4f4f4;
+        cursor: pointer;
+        color: #666
+    }
+
+.bsc-deep-links {
+    padding-left: 20px;
+    padding-top: 10px
+}
+
+    .bsc-deep-links::after {
+        content: '.';
+        display: block;
+        height: 0;
+        visibility: hidden;
+        clear: both
+    }
+
+    .bsc-deep-links > ul {
+        margin: 0 20px 0 0;
+        padding: 0;
+        width: 274px;
+        float: left
+    }
+
+        .bsc-deep-links > ul > li {
+            list-style: none;
+            margin: 0;
+            padding: 0 0 10px
+        }
+
+            .bsc-deep-links > ul > li > h3 {
+                margin: 0;
+                padding: 0;
+                display: inline-block;
+                font: 13px/1.2em 'Segoe UI',Arial,Helvetica,Sans-Serif;
+                font-size: 18px;
+                padding-bottom: 3px
+            }
+
+            .bsc-deep-links > ul > li > p {
+                margin: 0;
+                padding: 0;
+                height: 34px;
+                overflow: hidden;
+                color: #666;
+                line-height: 17px
+            }
+
+.bsc-modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #000;
+    background-color: rgba(0,0,0,0.4)
+}
+
+.bsc-modal-content {
+    position: relative;
+    background-color: #fefefe;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+    -webkit-animation-name: bcs-animate-modal;
+    -webkit-animation-duration: .4s;
+    animation-name: bcs-animate-modal;
+    animation-duration: .4s
+}
+
+@-webkit-keyframes bcs-animate-modal {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+@keyframes bcs-animate-modal {
+    from {
+        top: -300px;
+        opacity: 0
+    }
+
+    to {
+        top: 0;
+        opacity: 1
+    }
+}
+
+.bsc-modal-close {
+    color: white;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    margin-top: -2px
+}
+
+    .bsc-modal-close:hover, .bsc-modal-close:focus {
+        color: black;
+        text-decoration: none;
+        cursor: pointer
+    }
+
+.bsc-modal-header {
+    padding: 10px 16px;
+    background-color: #00a2ee;
+    color: white;
+    font-size: 20px
+}
+
+    .bsc-modal-header h2 {
+        padding: 0 0 3px 0;
+        margin: 0;
+        font: 20px/1.2em 'Segoe UI',Arial,Helvetica,Sans-Serif
+    }
+
+.bsc-modal-body {
+    padding: 2px 16px;
+    background-color: white;
+    max-height: calc(100% - 215px);
+    overflow: auto
+}
+
+.bsc-modal-footer {
+    padding: 10px 16px 2px;
+    color: white;
+    height: 50px
+}
+
+.powered-by {
+    vertical-align: middle
+}
+
+    .powered-by a {
+        text-decoration: none;
+        color: #666
+    }
+
+    .powered-by p, .powered-by-img {
+        margin: 0;
+        vertical-align: middle;
+        display: inline-block;
+        margin-right: 5px
+    }
+
+.powered-by-img {
+    height: 25px;
+    width: 65px;
+    background-size: 65px 25px
+}

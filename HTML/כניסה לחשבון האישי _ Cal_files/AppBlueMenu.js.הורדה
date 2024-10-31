@@ -1,0 +1,117 @@
+﻿var g_focusedElement = null;
+var g_notFocused = true;
+
+$(document).ready(function()
+{
+    var blueMenu = $$("AppBlueMenu");
+
+    blueMenu.find(".sub_item").each (function ()
+    {
+        var parentWidth = $($(this).parent().get(0)).css("width");
+        parentWidth = parseInt(parentWidth) - 8;
+        
+        if ($.browser && $.browser.msie && $.browser.version == 8)
+        {
+            parentWidth = parentWidth -1;
+        }
+        
+        $(this).css("width", parentWidth + "px");
+    });
+
+    blueMenu.find("a").click(function()
+    {
+		$(this).blur();
+	});
+	
+	//When mouse rolls over
+	blueMenu.find("li").mouseover(function()
+	{
+	    var heightMenu = CalHeightForItem (this);
+	
+		$(this).stop().animate(
+		    {   
+		        height:heightMenu + "px"
+		    },
+		    {
+		        queue:false,duration:300, easing: 'easeInQuad'
+		    })
+	});
+	
+	blueMenu.find("li a").each (function ()
+	{
+	    $(this).focus(function()
+	    { 
+	        if (g_focusedElement != null)
+	        {
+	            if (g_focusedElement.parent() != $(this).parent())
+	            {
+	                makeMenuRegularHeight(g_focusedElement);
+	            }
+	        }
+	      
+	        g_notFocused = false;
+	        g_focusedElement = $(this);
+	        var heightMenu = CalHeightForItem ($(this).parent().get(0));
+    	    
+	        $(this).parent().stop().css("height", heightMenu + "px");
+	    });
+	});
+	
+	blueMenu.find("li a").each(function ()
+	{
+	    $(this).blur(function()
+	    {
+	        g_notFocused = true;
+	        var currItem = this;
+    	    
+            setTimeout
+            (
+                function ()
+                {                        
+                    if (g_notFocused)
+                    {
+                        makeMenuRegularHeight(currItem)
+                    }   
+                }
+                , 
+                50
+            )
+	    });
+    });
+	
+	blueMenu.find("li").mouseout(function()
+	{
+		$(this).stop().animate(
+		    {
+		        
+		        height:'28px'
+		    },
+		    {
+		        queue:false, duration:400, easing: 'easeOutQuad'
+		    })
+	});
+});
+
+
+function makeMenuRegularHeight (linkeElment)
+{    
+    $(linkeElment).parent().stop().css("height", "28px");
+}
+
+function CalHeightForItem (p_htmlLi)
+{
+    var currLi = $(p_htmlLi);
+    var heightMenu = currLi.attr("calcHeight");
+    
+    if (heightMenu == null || heightMenu == "")
+    {
+        var linkChildren = currLi.children("a");   
+        var heightOfChild = linkChildren.height();
+        
+        heightMenu = heightOfChild * linkChildren.length + 1 * linkChildren.length - 1;
+	    
+        currLi.attr("calcHeight" , heightMenu);
+    }
+    
+    return heightMenu;
+}

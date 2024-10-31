@@ -1,0 +1,159 @@
+﻿var txtMonth; var txtYear; function reqExpDate(obj, args) {
+    if (document.getElementById(txtMonth).value.length == 0 || document.getElementById(txtYear).value.length == 0)
+        args.IsValid = false; else
+        args.IsValid = true;
+}
+function vldExpDate(obj, args) {
+    try {
+        if (parent.document.getElementById("frame1") != null) {
+            if (parent.document.getElementById("frame1").height < 600) {
+                if (navigator.appName == "Microsoft Internet Explorer")
+                    parent.document.getElementById("frame1").height = document.getElementById("table1").clientHeight + 90 + "px"; else
+                    parent.document.getElementById("frame1").height = document.getElementById("table1").clientHeight + 110 + "px";
+            }
+        }
+        if (txtMonth != null && txtYear != null) {
+            var iMonth = parseInt(document.getElementById(txtMonth).value, 10); var iYear = parseInt(document.getElementById(txtYear).value, 10); var today = new Date(); var fullYear = today.getFullYear().toString(); var yearNow = fullYear.substring(2, 4); if (yearNow.substring(0, 1) == "0")
+                yearNow = yearNow.substring(1, 2)
+            yearNow = parseInt(yearNow); if (iYear <= yearNow) {
+                if (iYear == yearNow) {
+                    if (iMonth < parseInt(today.getMonth()) + 1 || iMonth > 12)
+                        args.IsValid = false;
+                }
+                else { args.IsValid = false; }
+                return;
+            }
+            else { if (iMonth > 12) { args.IsValid = false; return; } }
+        }
+        args.IsValid = true;
+    }
+    catch (e) { }
+}
+var bNotIntConfirm = false; var bMailUser = false; function ddlChange(internetID, EmailID, mailUser) {
+    try {
+        bMailUser = mailUser; if (document.getElementById(internetID).value == 1 && bNotIntConfirm == false) {
+            document.getElementById("tdAtt_4").innerText = "שים לב!"; if (eval(mailUser) != true) { document.getElementById("tdText1_4").style.display = ""; document.getElementById("tdText2_4").style.display = "none"; document.getElementById("frm_4").style.height = "155px"; }
+            else { document.getElementById("trSubc_4").style.display = "none"; document.getElementById("trIntMailSubc_4").style.display = ""; document.getElementById("tdText1IntMail_4").style.display = ""; document.getElementById("tdText2IntMail_4").style.display = "none"; document.getElementById("tdFooter_4").style.display = ""; document.getElementById("tdFooterMail_4").style.display = "none"; document.getElementById("trFooter_4").style.display = ""; document.getElementById("frm_4").style.height = "255px"; }
+            document.getElementById("tblStep1_4").style.display = ""; document.getElementById("tblStep2_4").style.display = "none"; document.getElementById("divNotInt_4").style.display = ""; return false;
+        }
+        else if (document.getElementById(EmailID).value == 1 && eval(mailUser) == true && bNotIntConfirm == false) {
+            document.getElementById(btnOK).style.display = "none"; document.getElementById(btnGetMsg).style.display = ""; document.getElementById("spnCancelLink_1").style.display = "none"; document.getElementById("spnCancelMailLink_1").style.display = ""; document.getElementById("trSubc_1").style.display = "none"; document.getElementById("trMailSubc_1").style.display = ""; document.getElementById("tdFooter_1").style.display = "none"; document.getElementById("tdFooterMail_1").style.display = ""; document.getElementById("trFooter_1").style.display = ""; document.getElementById("frm_1").style.height = "155px"
+            document.getElementById("divNotInt_1").style.display = ""; return false;
+        }
+        else { document.getElementById("divNotInt_4").style.display = "none"; document.getElementById("divNotInt_1").style.display = "none"; return true; }
+    }
+    catch (e) { alert(e.message); return false; }
+}
+var _currentChannel = null; var __isOkToFire = true; function submitChannelsDefForm() {
+    __isOkToFire = true; if (_channelsMsgs.length == 0)
+        return true; else { fireChannelsMsgs(); return __isOkToFire; }
+}
+var __channelsCnt = 0; function fireChannelsMsgs() {
+    if (_channelsMsgs.length == __channelsCnt) {
+        if (_currentChannel != null)
+            hideContent(_currentChannel); _currentChannel = null; __channelsCnt = 0; if (!__isOkToFire) { cancelEvent(); return false; }
+    }
+    else {
+        if (_currentChannel != null)
+            hideContent(_currentChannel); _currentChannel = _channelsMsgs.shift(); var ddlorg = document.getElementById("hid_ddl_" + _currentChannel.channelId).value; var ddl = document.getElementById(ddlorg + "_HiddenField"); if (ddl.value == 0) { show357Alert(_currentChannel, 0); __isOkToFire = false; cancelEvent(); return false; }
+        else { _channelsMsgs.push(_currentChannel); __channelsCnt++; return fireChannelsMsgs(); }
+    }
+}
+function getAlertContainerLayer(p_channel) { return document.getElementById(p_channel.alertLayerId); }
+function getAlertVisualLayer(p_channel, p_elementIndex) {
+    var alertLayer = getAlertContainerLayer(p_channel); for (i = 0; i < alertLayer.childNodes.length; i++) { var currChild = alertLayer.childNodes[i]; if (currChild.id == "msgPopUp" + p_elementIndex) { return currChild; } }
+    return null;
+}
+function getAlertOpacityLayer(p_channel) { var alertLayer = getAlertContainerLayer(p_channel); return alertLayer.getElementsByTagName("iframe")[0]; }
+function show357Alert(p_channel) { var parent = getAlertContainerLayer(p_channel); var content = getAlertVisualLayer(p_channel, 0); var opacity = getAlertOpacityLayer(p_channel); parent.style.visibility = "visible"; showContent(content); positionAlert(parent, opacity); }
+function positionAlert(p_alertLayer, p_opacity) { var top = p_alertLayer.parentNode.offsetHeight / 2 - (p_alertLayer.offsetHeight / 2); var left = p_alertLayer.parentNode.offsetWidth / 2 - (p_alertLayer.offsetWidth / 2); p_alertLayer.style.top = top - 20 + "px"; p_alertLayer.style.left = left + "px"; p_opacity.style.width = p_alertLayer.offsetWidth + "px"; p_opacity.style.height = p_alertLayer.offsetHeight + 10 + "px"; }
+function cancelChannelService() {
+    if (_currentChannel != null) { var content1 = getAlertVisualLayer(_currentChannel, 0); var content2 = getAlertVisualLayer(_currentChannel, 1); var opacity = getAlertOpacityLayer(_currentChannel); var parent = getAlertContainerLayer(_currentChannel); content1.style.display = "none"; showContent(content2); positionAlert(parent, opacity); cancelEvent(); return false; }
+    else
+        alert("exception: _currentChannel is NULL!");
+}
+function hideContent(p_channel) { var parent = getAlertContainerLayer(p_channel); var content1 = getAlertVisualLayer(p_channel, 0); var content2 = getAlertVisualLayer(p_channel, 1); parent.style.visibility = "hidden"; content1.style.display = "none"; content2.style.display = "none"; }
+function showContent(p_contentLayer) { p_contentLayer.style.display = "block"; p_contentLayer.style.zIndex = 1001; }
+function approveChannelService(valueForHidden) { var parent = getAlertContainerLayer(_currentChannel); parent.style.visibility = "hidden"; var ddlorg = document.getElementById("hid_ddl_" + _currentChannel.channelId).value; var ddlHidden = document.getElementById(ddlorg + "_HiddenField"); var ddlTextBox = document.getElementById(ddlorg + "_TextBox"); ddlTextBox.value = "קבלת מידע וביצוע פעולות"; ddlHidden.value = valueForHidden; cancelEvent(); }
+function Channel(p_channelId, p_ddlId, p_alertLayerId) { this.ddlId = p_ddlId; this.channelId = p_channelId; this.alertLayerId = p_alertLayerId; }
+function ddlChange(p_channel) {
+    var ddl = document.getElementById(p_channel.ddlId); var channelId = p_channel.channelId; if (ddl.value == 1 && ddl.getAttribute("viewed") != "true") { document.getElementById("divNotInt_" + channelId).setAttribute("IsVisible", "true"); document.getElementById("tdText1_" + channelId).style.display = ""; document.getElementById("tblStep1_" + channelId).style.display = ""; document.getElementById("tdText2_" + channelId).style.display = "none"; document.getElementById("tblStep2_" + channelId).style.display = "none"; show357Alert(p_channel); return false; }
+    else { document.getElementById("divNotInt_" + channelId).setAttribute("IsVisible", ""); hide357Alert(p_channel); return true; }
+}
+function changeDDLValue(val) {
+    var ddlInternetID = document.getElementById("hid_ddl_4").value; document.getElementById(ddlInternetID).value = val; if (bMailUser) { var ddlEMailID = document.getElementById("hid_ddl_1").value; document.getElementById(ddlEMailID).value = val; }
+    if (document.getElementById("divNotInt_4").style.display != "none")
+        document.getElementById("divNotInt_4").style.display = "none"; else
+        document.getElementById("divNotInt_1").style.display = "none"; if (val == 1) { document.getElementById(ddlInternetID).setAttribute("viewed", "true"); bNotIntConfirm = true; }
+    return false;
+}
+function changeDiv(p_channelId) {
+    if (document.getElementById("divNotInt_" + p_channelId).getAttribute("IsVisible") == "true") {
+        document.getElementById("tdAtt_" + p_channelId).innerText = "אישור"; document.getElementById("trFooter_" + p_channelId).style.display = "none"; if (bMailUser) { document.getElementById("trSubc_" + p_channelId).style.display = "none"; document.getElementById("trIntMailSubc_" + p_channelId).style.display = ""; document.getElementById("tdText1IntMail_" + p_channelId).style.display = "none"; document.getElementById("tdText2IntMail_" + p_channelId).style.display = ""; }
+        else { document.getElementById("tdText1_" + p_channelId).style.display = "none"; document.getElementById("tdText2_" + p_channelId).style.display = ""; }
+        document.getElementById("tblStep1_" + p_channelId).style.display = "none"; document.getElementById("tblStep2_" + p_channelId).style.display = "";
+    }
+    else { bNotIntConfirm = true; document.getElementById("divNotInt_" + p_channelId).setAttribute("IsVisible", ""); }
+}
+function closeNotIntDiv() {
+    if (document.getElementById("divNotInt_4").style.display != "none")
+        document.getElementById("divNotInt_4").style.display = "none"; else if (document.getElementById("divNotInt_1").style.display != "none")
+        document.getElementById("divNotInt_1").style.display = "none";
+}
+
+function chkIfIntresting(isOTP, isLegalChecked) {
+
+    var retValue = false;
+    var errInternet = false;
+    var errSms = false;
+    var errLegal = false;
+    //internet should be accepted always
+    if (document.getElementById("hid_ddl_4") != null) {
+        var ddlInternetId = document.getElementById("hid_ddl_4").value + "_HiddenField";
+        if (document.getElementById(ddlInternetId).value == "0") {
+            document.getElementById("divErr").style.display = "block";
+            errInternet= true;
+        }
+    }
+
+    //sms should be accepted in OTP only
+    if (isOTP && document.getElementById("hid_ddl_3") != null) {
+        var ddlSmsId = document.getElementById("hid_ddl_3").value + "_HiddenField";
+        if (document.getElementById(ddlSmsId).value == "0") {
+            document.getElementById("divErr").style.display = "block";
+            errSms = true;
+        }
+    }
+
+    //Legal should be checked in OTP only
+    if (isOTP) {
+        if (!isLegalChecked) {
+            document.getElementById("divLegalErr").style.display = "block";
+            errLegal = true;
+        }
+    }
+
+    if (errInternet && errSms) {
+        $("#LoginErr").html("ללא שינוי רמת השירות באינטרנט ובסלולר לא תוכל להשלים את ההצטרפות לשירותי Cal-Online").show();
+    }
+    else if (errInternet){
+        $("#LoginErr").html("ללא שינוי רמת השירות באינטרנט לא תוכל להשלים את ההצטרפות לשירותי Cal-Online").show();
+    }
+    else if (errSms) {
+        $("#LoginErr").html("ללא שינוי רמת השירות בסלולר לא תוכל להשלים את ההצטרפות לשירותי Cal-Online").show();
+    }
+
+    if (!isLegalChecked) {
+        $("#LoginLegalErr").html($$("hidJoinValidator").val()).show();
+    }
+
+    return retValue;
+}
+
+function openAggPopUp(url) { window.open(url, 'popupWin', 'screenX=250px,screenY=100px,left=250px,top=100px, status=yes,scrollbars=yes, width=557px, height=500px'); }
+function submitAndDisableBtn() {
+    if (submitChannelsDefForm()) { _btnOK = this; setTimeout('disableBtnOnSubmit()', 50); return true; }
+    else
+        return false;
+}
+var _btnOK; function disableBtnOnSubmit() { _btnOK.disabled = true; }

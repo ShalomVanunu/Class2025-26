@@ -1,0 +1,60 @@
+﻿
+
+/*****************************/
+/* Login - One Time Password */
+/*****************************/
+
+
+        div.login-otp-form { direction: rtl;font-family: 'Ploni',Arial;font-size: 14px;text-align: right; width:368px}
+        div.login-otp-form #loginPasswordDiv{display:block;}
+        div.login-otp-form #loginPasswordDiv div.password-title{padding:0px 0px 20px 0px;}
+        div.login-otp-form div.form-row div.data-item{direction:rtl;float:right;}
+        div.login-otp-form div.form-row{overflow:hidden}
+        div.login-otp-form div.form-row div.login-label{width:120px;}
+        div.login-otp-form div.form-row div.login-input{height:50px;width:140px;}
+        
+        div.login-otp-form input.NoBorderInTxtBox{border-style:none;border:0px;}
+        div.login-otp-form input{width:138px;border: 1px solid #CDCBC8;direction: rtl;height: 20px;
+                                 margin: 0;padding: 0;text-align:left;}
+            
+        div.login-otp-form div.login-input-align-bottom{padding-top:12px;}
+        div.login-otp-form div.login-continue{padding:0px 0px 10px 0px;overflow:hidden;}
+        div.login-otp-form div.login-title{padding:5px 0px 20px 0px;}
+        div.login-otp-form div.login-continue input.button_submit{
+                                                background:url('../../App_Themes/Default/images/but_continue_green.gif') no-repeat; 
+                                                width:85px;height:28px;border:0px;cursor:pointer;float:left;}
+        div.login-otp-form div.login-continue input.button_submit:hover{
+                                                background:url('../../App_Themes/Default/images/but_continue_green_hover.gif') no-repeat; 
+                                                width:85px;height:28px;border:0px;cursor:pointer;float:left;}
+        div.login-otp-form div.error-summary{height:30px;padding: 10px 10px 10px 30px;}
+        div.login-otp-form div.login-phone-remarks{font:normal 14px arial;}
+        
+        div.login-otp-form div.login-phone-remarks ul,
+        div.login-otp-form div.login-phone-remarks li
+        {
+            display:table;
+            list-style:none;
+            padding:0px;
+            margin:0px;
+        }
+
+        div.login-otp-form div.form-row div.login-input-align-bottom-30 {padding-top:30px;}
+        div.login-otp-form div.form-row div.registration_fieldinput {display:block; float:right; }
+        div.login-otp-form div.form-row div.tooltip_holder {width:16px; float:right; margin-top:3px; _margin-top:4px; *margin-top:5px; margin-right:1px}
+        
+        div.login-otp-form #LoginOtpCaptcha{height:136px}
+        div.login-otp-form div.form-row div.form_row_captcha div.captcha_image {padding:10px 0px 10px 0px}
+        div.login-otp-form div.form-row div.captcha-input{height:45px;width:150px;}
+
+        div.login-otp-form div.login-phone-remarks ul {margin-bottom:10px;}
+        div.login-otp-form div.login-phone-remarks li {display:table-row;}
+        div.login-otp-form div.login-phone-remarks ul li:before{content:"*";display:table-cell;}
+        
+        div.login_screen { background-image:url('Images/bluearrow.gif'); 
+                  background-position:100% 5px; background-repeat:no-repeat; height:16px; 
+                  width:180px;margin:4px 0px 10px 0px; }
+                  
+        div.login_screen a.forgot { display:block;float:right; margin:0px 5px 0px 0px; white-space:nowrap;
+                                  color:#1b5ece;text-decoration:none;font-size:12px;}
+        div.login_screen a.forgot:hover { display:block;float:right; margin:0px 5px 0px 0px; white-space:nowrap;
+                                  color:#1b5ece;text-decoration:underline;font-size:12px;}

@@ -1,0 +1,11 @@
+﻿.whatsapp-btn-tzaf {
+    z-index: 99999;
+    display: block;
+    position: fixed;
+    left: 1.9%;
+    bottom: 21px;
+}
+
+.whatsapp-btn-tzaf:hover {
+    opacity: 0.8;
+}
