@@ -5,7 +5,7 @@ URL = "https://hack-yourself-first.com/"
 
 url_content = requests.get(URL)
 
-url_content_post = requests.post(URL,data = {"Email":"shalom@gmail.com","Password":"qweasd"})
+url_content_post = requests.post(URL,data = {'Email':'shalom@gmail.com','Password':'qweasd'})
 
 #print(url_content_post.text)
 
