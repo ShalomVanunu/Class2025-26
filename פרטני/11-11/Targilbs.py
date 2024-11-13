@@ -6,9 +6,9 @@ url = "https://www.ceicdata.com/en/indicator/israel/population"
 
 page_html_contet = requests.get(url).text
 
-bs_page = BeautifulSoup(page_html_contet,"html.parser")
+bs_page_content = BeautifulSoup(page_html_contet,"html.parser")
 
-a_href = bs_page.find_all("a")
+a_href = bs_page_content.find_all("a")
 
 county_lst =[]
 
