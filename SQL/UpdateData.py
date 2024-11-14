@@ -1,6 +1,6 @@
 import sqlite3
 
-db_file = "CRM.db"
+db_file = "users.db"
 
 def db_update(dbfile_name,sql):
     connection = sqlite3.connect(dbfile_name) # connect to DB
@@ -8,9 +8,9 @@ def db_update(dbfile_name,sql):
     cursor.execute(sql) # what to do
     connection.commit() # Done
 
-# # insert new data to DB file
-# sql ="INSERT INTO users VALUES (1,'moshe', 'moshe@gmail.com')"
-# db_update(db_file,sql)
-# upadte data to DB file
-sql ="UPDATE users SET id=2 WHERE name='moshe'"
-db_update(db_file,sql)
+username_list = ['shalom','liroy','dana','linoy','daria']
+password_list = ['Password1','Password2','Password2','3141','123']
+
+for index in range(5):
+    sql =f"INSERT INTO login VALUES ('{username_list[index]}','{password_list[index]}') "
+    db_update(db_file,sql)
