@@ -33,6 +33,7 @@ for i in range(1,11):
     th_list.append(th)
     th.start()
 
+
 print(th_list)
 
 for th in th_list:
