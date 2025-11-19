@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winners Declaration</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease;
+        }
+
+        .header h1 {
+            color: #fff;
+            font-size: 3.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #f0f0f0;
+            font-size: 1.2em;
+        }
+
+        .winners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .winner-card {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1s ease;
+        }
+
+        .winner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+        }
+
+        .winner-card.first-place {
+            grid-column: span 1;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+        }
+
+        .position-badge {
+            display: inline-block;
+            padding: 10px 25px;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 20px;
+        }
+
+        .first-place .position-badge {
+            background: rgba(255,255,255,0.3);
+            color: white;
+        }
+
+        .winner-card:not(.first-place) .position-badge {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+        }
+
+        .winner-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 20px auto;
+            border: 5px solid rgba(255,255,255,0.5);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .first-place .winner-image {
+            width: 180px;
+            height: 180px;
+            border: 6px solid white;
+        }
+
+        .winner-name {
+            font-size: 1.8em;
+            font-weight: bold;
+            margin: 15px 0 10px;
+        }
+
+        .first-place .winner-name {
+            color: white;
+        }
+
+        .winner-card:not(.first-place) .winner-name {
+            color: #333;
+        }
+
+        .winner-category {
+            font-size: 1.1em;
+            color: rgba(0,0,0,0.6);
+            margin-bottom: 15px;
+        }
+
+        .first-place .winner-category {
+            color: rgba(255,255,255,0.9);
+        }
+
+        .trophy-icon {
+            font-size: 3em;
+            margin-bottom: 10px;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .confetti {
+            position: fixed;
+            width: 10px;
+            height: 10px;
+            background: #f0f;
+            position: absolute;
+            animation: confetti-fall 3s linear infinite;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎉 Winners Declaration 🎉</h1>
+            <p>Congratulations to all our winners!</p>
+        </div>
+
+        <div class="winners-grid">
+            <!-- First Place -->
+            <div class="winner-card first-place">
+                <div class="trophy-icon">🏆</div>
+                <div class="position-badge">1st Place</div>
+                <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" alt="Winner" class="winner-image">
+                <h2 class="winner-name">{{name1}}</h2>
+                <p class="winner-category">Grand Champion</p>
+            </div>
+
+            <!-- Second Place -->
+            <div class="winner-card">
+                <div class="trophy-icon">🥈</div>
+                <div class="position-badge">2nd Place</div>
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" alt="Winner" class="winner-image">
+                <h2 class="winner-name">{{name2}}</h2>
+                <p class="winner-category">Runner-Up</p>
+            </div>
+
+            <!-- Third Place -->
+            <div class="winner-card">
+                <div class="trophy-icon">🥉</div>
+                <div class="position-badge">3rd Place</div>
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Winner" class="winner-image">
+                <h2 class="winner-name">{{name3}}</h2>
+                <p class="winner-category">Third Place</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Create confetti effect
+        function createConfetti() {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.backgroundColor = ['#FFD700', '#FF69B4', '#00CED1', '#FF6347', '#9370DB'][Math.floor(Math.random() * 5)];
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 3000);
+        }
+
+        // Generate confetti periodically
+        setInterval(createConfetti, 300);
+    </script>
+</body>
+</html>
