@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="3">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Server Dashboard</title>
+    <style>
+        body { font-family: sans-serif; background-color: #f4f4f9; padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        h1 { color: #333; border-bottom: 2px solid #ddd; padding-bottom: 10px; }
+        ul { list-style-type: none; padding: 0; }
+        li { background: #e0f7fa; margin: 5px 0; padding: 10px; border-radius: 4px; border-left: 5px solid #00acc1; display: flex; justify-content: space-between; }
+        .empty { color: #888; font-style: italic; }
+        .badge { background: #00acc1; color: white; padding: 2px 8px; border-radius: 12px; font-size: 0.8em; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Connected Clients <span class="badge">{{ clients|length }}</span></h1>
+
+        {% if clients %}
+            <ul>
+            {% for client in clients %}
+                <li>
+                    <span><strong>IP:</strong> {{ client.ip }}</span>
+                    <span><strong>Port:</strong> {{ client.port }}</span>
+                </li>
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p class="empty">No clients connected via TCP.</p>
+        {% endif %}
+
+        <p><small>Listening for TCP on port {{ tcp_port }} | Web Dashboard on port {{ web_port }}</small></p>
+    </div>
+</body>
+</html>
+"""
