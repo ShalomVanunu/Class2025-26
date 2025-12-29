@@ -1,11 +1,13 @@
-from scapy.all import sniff, IP, UDP, DNS, DNSQR
-
+from scapy.all import sniff
+from scapy.layers.inet import IP, TCP,ICMP
+from scapy.layers.dns import DNS
 
 def dns_query_callback(packet):
     """
     Callback function to process each captured packet.
     """
     # Check if the packet has an IP layer and a DNS layer
+    print(packet.show())
     if packet.haslayer(DNS) and packet.haslayer(IP):
         # We are only interested in DNS queries (requests), not responses
         # A DNS query has the QR (Query/Response) flag set to 0
