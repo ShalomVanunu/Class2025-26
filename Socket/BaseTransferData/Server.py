@@ -1,5 +1,6 @@
 import socket
 import pickle
+import json
 
 Server_Socket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 # AF_INET = IPv4 || SOCK_STREAM - TCP
@@ -14,6 +15,6 @@ print(Client_socket)
 print(f" The client with IP and PORT {IP_PORT} is Connected ")
 
 data_recv = Client_socket.recv(1024)
-print(data_recv)
-print(pickle.loads(data_recv))
+print(json.loads(data_recv.decode()))
+
 
